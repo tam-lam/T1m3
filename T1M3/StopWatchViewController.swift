@@ -29,28 +29,41 @@ class StopWatchViewController: UIViewController {
     
     private enum Constants {
         static let maximumPlottablePoints = 20
+        static let animationDuration = 1.0
     }
 
     @IBAction func startStopWatchButtonPress(_ sender: Any) {
-        startStopWatch()
+        
+        switch StopWatchController.shared.currentState {
+        case .default:
+            startStopWatch()
+        case .running:
+            pauseStopWatch()
+        case .paused:
+            resumeStopWatch()
+//        case .resumed:
+//            pauseStopWatch()
+        }
     }
     
-    func changeElementVisiblity() {
+    func changeElementVisiblity(newState: StopWatchState) {
         let newState = StopWatchController.shared.currentState
-        UIView.animate(withDuration: 2) {
-            switch newState {
-            case .resumed,.running,.paused:
-                self.chartView.isHidden = true
-                self.chartView.alpha = 0
-                self.stopWatchTimeLabel.isHidden = false
-                self.stopWatchTimeLabel.alpha = 1
-            case .default:
-                self.chartView.isHidden = false
-                self.chartView.alpha = 1
-                self.stopWatchTimeLabel.isHidden = true
-                self.stopWatchTimeLabel.alpha = 1
-            }
-        }
+        UIView.transition(with: chartView,
+                          duration: Constants.animationDuration,
+                          options: .transitionCrossDissolve,
+                          animations: {
+                            self.chartView.isHidden = newState != .default
+        },
+                          completion: nil)
+        UIView.transition(with: stopWatchTimeLabel,
+                          duration: Constants.animationDuration,
+                          options: .transitionCrossDissolve,
+                          animations: {
+                            self.stopWatchTimeLabel.isHidden = newState == .default
+        },
+                          completion: nil)
+        
+        startButton.setTitle(newState == .default ? "Start" : newState == .running ? "Pause" : "Resume" , for: .normal)
     }
 
 }
@@ -58,18 +71,22 @@ class StopWatchViewController: UIViewController {
 
 // MARK: - Control states of stopwatch
 extension StopWatchViewController {
+    
     func startStopWatch() {
         StopWatchController.shared.currentState = .running
     }
     
     func pauseStopWatch() {
-        changeElementVisiblity()
         StopWatchController.shared.currentState = .paused
     }
     
     func stopStopWatch() {
-        changeElementVisiblity()
         StopWatchController.shared.currentState = .default
+    }
+    
+    func resumeStopWatch() {
+        startStopWatch()
+//        StopWatchController.shared.currentState = .resumed
     }
 }
 
@@ -93,7 +110,7 @@ extension StopWatchViewController: StopWatchListener {
     }
     
     func stateChanged(newState: StopWatchState) {
-        changeElementVisiblity()
+        changeElementVisiblity(newState: newState)
     }
 }
 
@@ -103,7 +120,6 @@ private class CubicLineSampleFillFormatter: IFillFormatter {
         return -10
     }
 }
-
 
 // MARK: - Accelerometer input
 extension StopWatchViewController {
