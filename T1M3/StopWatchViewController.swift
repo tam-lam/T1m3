@@ -17,6 +17,9 @@ class StopWatchViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var chartView: LineChartView!
     
+    @IBOutlet weak var saveButton: UIButton!
+    
+    @IBOutlet weak var discardButton: UIButton!
     
     var dataHistory = Array(repeating: 0.0, count: Constants.maximumPlottablePoints)
     override func viewDidLoad() {
@@ -33,61 +36,42 @@ class StopWatchViewController: UIViewController {
     }
 
     @IBAction func startStopWatchButtonPress(_ sender: Any) {
-        
-        switch StopWatchController.shared.currentState {
-        case .default:
-            startStopWatch()
-        case .running:
-            pauseStopWatch()
-        case .paused:
-            resumeStopWatch()
-//        case .resumed:
-//            pauseStopWatch()
-        }
+        StopWatchController.shared.startStopWatchPressed()
     }
+    
+    @IBAction func saveButtonPress(_ sender: Any) {
+        StopWatchController.shared.savePressed()
+    }
+    
+    @IBAction func discardButtonPress(_ sender: Any) {
+        StopWatchController.shared.discardPressed()
+    }
+    
     
     func changeElementVisiblity(newState: StopWatchState) {
         let newState = StopWatchController.shared.currentState
-        UIView.transition(with: chartView,
-                          duration: Constants.animationDuration,
-                          options: .transitionCrossDissolve,
-                          animations: {
-                            self.chartView.isHidden = newState != .default
-        },
-                          completion: nil)
-        UIView.transition(with: stopWatchTimeLabel,
-                          duration: Constants.animationDuration,
-                          options: .transitionCrossDissolve,
-                          animations: {
-                            self.stopWatchTimeLabel.isHidden = newState == .default
-        },
-                          completion: nil)
+//        UIView.transition(with: chartView,
+//                          duration: Constants.animationDuration,
+//                          options: .transitionCrossDissolve,
+//                          animations: {
+//                            self.chartView.isHidden = newState != .default
+//        },
+//                          completion: nil)
+//        UIView.transition(with: stopWatchTimeLabel,
+//                          duration: Constants.animationDuration,
+//                          options: .transitionCrossDissolve,
+//                          animations: {
+//                            self.stopWatchTimeLabel.isHidden = newState == .default
+//        },
+//                          completion: nil)
+        self.chartView.isHidden = newState != .default
+        self.stopWatchTimeLabel.isHidden = newState == .default
+        self.saveButton.isHidden = newState != .paused
+        self.discardButton.isHidden = newState != .paused
         
         startButton.setTitle(newState == .default ? "Start" : newState == .running ? "Pause" : "Resume" , for: .normal)
     }
 
-}
-
-
-// MARK: - Control states of stopwatch
-extension StopWatchViewController {
-    
-    func startStopWatch() {
-        StopWatchController.shared.currentState = .running
-    }
-    
-    func pauseStopWatch() {
-        StopWatchController.shared.currentState = .paused
-    }
-    
-    func stopStopWatch() {
-        StopWatchController.shared.currentState = .default
-    }
-    
-    func resumeStopWatch() {
-        startStopWatch()
-//        StopWatchController.shared.currentState = .resumed
-    }
 }
 
 extension StopWatchViewController: StopWatchListener {
@@ -100,13 +84,6 @@ extension StopWatchViewController: StopWatchListener {
     func stopWatchUpdate(elapsedTime: Double){
         let decimalValue = Int((elapsedTime - Double(Int(elapsedTime))) * 100)
         self.stopWatchTimeLabel.text = "\(Int(elapsedTime)):\(decimalValue >= 10 ? String(decimalValue) : "0\(decimalValue)")"
-    }
-    
-    func stopWatchStopped(finalTime: Double) {
-        // Stop the stopwatch and save the record
-    }
-    func stopWatchPaused(currentTime: Double) {
-        // Pause the stopWatch and do something with the current time
     }
     
     func stateChanged(newState: StopWatchState) {

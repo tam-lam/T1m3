@@ -19,21 +19,23 @@ public enum StopWatchState {
 
 public protocol StopWatchListener {
     func stopWatchUpdate(elapsedTime: Double)
-    func stopWatchStopped(finalTime: Double)
-    func stopWatchPaused(currentTime: Double)
     func stateChanged(newState: StopWatchState)
 }
 
 public struct Recording {
     
-    public var timeStarted: Double = Date().timeIntervalSince1970
+    public var timeStarted: Double = 0
     public var pauseTimes: [(pauseTime: Double, resumeTime: Double)] = []
     
     public var getTotalRecordingElapsed: Double {
-        var total = Date().timeIntervalSince1970 - timeStarted
+        let intermissions = pauseTimes.reduce(0) { $0 + $1.resumeTime - $1.pauseTime }
+        let total = (Date().timeIntervalSince1970 - timeStarted) - intermissions
         return total
     }
     
+    public mutating func start() {
+        timeStarted = Date().timeIntervalSince1970
+    }
 }
 
 
@@ -48,21 +50,6 @@ public class StopWatchController {
     
     public var currentState: StopWatchState = .default {
         didSet {
-            switch currentState {
-            case .default:
-                recording = Recording()
-            case .paused:
-                recording.pauseTimes.append((pauseTime: Date().timeIntervalSince1970,
-                                             resumeTime: Date().timeIntervalSince1970))
-            case .running:
-                recording.timeStarted = Date().timeIntervalSince1970
-                if var pauseRecord = recording.pauseTimes.last {
-                    pauseRecord.resumeTime = Date().timeIntervalSince1970
-                    _ = recording.pauseTimes.popLast()
-                    recording.pauseTimes.append(pauseRecord)
-                }
-                resumeTimer()
-            }
             listeners.forEach{ $0.stateChanged(newState: currentState )}
         }
     }
@@ -77,6 +64,60 @@ public class StopWatchController {
             self?.listeners.forEach { $0.stopWatchUpdate(elapsedTime: strongSelf.recording.getTotalRecordingElapsed) }
         }
     }
+    
+    func resetStopWatch() {
+        recording = Recording()
+        currentState = .default
+    }
+    
+    func pauseStopWatch() {
+        recording.pauseTimes.append((pauseTime: Date().timeIntervalSince1970,
+                                     resumeTime: Date().timeIntervalSince1970))
+        currentState = .paused
+    }
+    
+    func runStopWatch() {
+        recording.timeStarted = Date().timeIntervalSince1970
+
+        resumeTimer()
+        currentState = .running
+    }
+    
+    func resumeStopWatch() {
+        if var pauseRecord = recording.pauseTimes.last {
+            pauseRecord.resumeTime = Date().timeIntervalSince1970
+            _ = recording.pauseTimes.popLast()
+            recording.pauseTimes.append(pauseRecord)
+        }
+        currentState = .running
+    }
+    
     private init(){ }
 
 }
+
+// MARK: - Control states of stopwatch
+extension StopWatchController {
+    
+    func startStopWatchPressed() {
+        switch StopWatchController.shared.currentState {
+        case .default:
+            runStopWatch()
+        case .running:
+            pauseStopWatch()
+        case .paused:
+            resumeStopWatch()
+        }
+    }
+    
+    func savePressed() {
+        // Save to presistant
+        resetStopWatch()
+    }
+    
+    func discardPressed() {
+        resetStopWatch()
+    }
+    
+}
+
