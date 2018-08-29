@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class RecordLog {
+    public  static let shared = RecordLog()
+    
+    public private(set) var records: [Recording] = []
+    
+    public func addRecord(record: Recording) {
+        records.append(record)
+    }
+}
