@@ -15,6 +15,8 @@
 		C422340821325E8E001A27AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C422340621325E8E001A27AD /* LaunchScreen.storyboard */; };
 		C422341221326129001A27AD /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422341121326129001A27AD /* StopWatchViewController.swift */; };
 		C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */; };
+		C4E4F8312136B0C300506B6D /* WeatherInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */; };
+		C4E4F8332136B97C00506B6D /* RecordLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4F8322136B97C00506B6D /* RecordLog.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		C422340921325E8E001A27AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C422341121326129001A27AD /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
 		C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchController.swift; sourceTree = "<group>"; };
+		C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInformationManager.swift; sourceTree = "<group>"; };
+		C4E4F8322136B97C00506B6D /* RecordLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordLog.swift; sourceTree = "<group>"; };
 		F0120C570A8E5D15EE146FCA /* Pods-T1M3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T1M3.release.xcconfig"; path = "Pods/Target Support Files/Pods-T1M3/Pods-T1M3.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +94,8 @@
 				C422340921325E8E001A27AD /* Info.plist */,
 				C422341121326129001A27AD /* StopWatchViewController.swift */,
 				C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */,
+				C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */,
+				C4E4F8322136B97C00506B6D /* RecordLog.swift */,
 			);
 			path = T1M3;
 			sourceTree = "<group>";
@@ -209,7 +215,9 @@
 				C422341221326129001A27AD /* StopWatchViewController.swift in Sources */,
 				C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */,
 				C422340021325E8C001A27AD /* ViewController.swift in Sources */,
+				C4E4F8312136B0C300506B6D /* WeatherInformationManager.swift in Sources */,
 				C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */,
+				C4E4F8332136B97C00506B6D /* RecordLog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

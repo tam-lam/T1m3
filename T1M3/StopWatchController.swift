@@ -22,19 +22,45 @@ public protocol StopWatchListener {
     func stateChanged(newState: StopWatchState)
 }
 
-public struct Recording {
+public class Recording {
     
     public var timeStarted: Double = 0
+    public var timeFinished: Double?
     public var pauseTimes: [(pauseTime: Double, resumeTime: Double)] = []
+    public var accData: [(x: Double, y: Double)] = []
+    public var weather: WeatherSituation = .cloudy
     
-    public var getTotalRecordingElapsed: Double {
+    public var totalRecordingElapsed: Double {
         let intermissions = pauseTimes.reduce(0) { $0 + $1.resumeTime - $1.pauseTime }
-        let total = (Date().timeIntervalSince1970 - timeStarted) - intermissions
+        let total = ( Date().timeIntervalSince1970 - timeStarted) - intermissions
         return total
     }
     
-    public mutating func start() {
+    public var finalRecordingElapsed: Double {
+        let intermissions = pauseTimes.reduce(0) { $0 + $1.resumeTime - $1.pauseTime }
+        let total = ( (pauseTimes.last?.pauseTime ?? 0.0) - timeStarted) - intermissions
+        return total
+    }
+    
+    public static func toHumanReadable(elapsedTime: Double) -> String {
+        let decimalValue = Int((elapsedTime - Double(Int(elapsedTime))) * 100)
+        return "\(Int(elapsedTime)):\(decimalValue >= 10 ? String(decimalValue) : "0\(decimalValue)")"
+    }
+    
+    public func start() {
         timeStarted = Date().timeIntervalSince1970
+        AccelerometerManager.shared.getData { [weak self] (data) -> (Void) in
+            guard let strongself = self else { return }
+            strongself.accData.append((x: Date().timeIntervalSince1970 - strongself.timeStarted, y: data))
+        }
+        
+        WeatherInformationManager().getWeatherInformation { [weak self] (weather) in
+            self?.weather = weather
+        }
+    }
+    
+    public func stopRecording() {
+        timeFinished = Date().timeIntervalSince1970
     }
 }
 
@@ -61,7 +87,7 @@ public class StopWatchController {
         Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { [weak self] (timer) in
             guard let strongSelf = self else { return }
             guard self?.currentState == .running  else  { return }
-            self?.listeners.forEach { $0.stopWatchUpdate(elapsedTime: strongSelf.recording.getTotalRecordingElapsed) }
+            self?.listeners.forEach { $0.stopWatchUpdate(elapsedTime: strongSelf.recording.totalRecordingElapsed) }
         }
     }
     
@@ -112,6 +138,7 @@ extension StopWatchController {
     
     func savePressed() {
         // Save to presistant
+        RecordLog.shared.addRecord(record: recording)
         resetStopWatch()
     }
     

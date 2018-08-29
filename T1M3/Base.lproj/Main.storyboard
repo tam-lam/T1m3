@@ -65,16 +65,24 @@
                                     <action selector="discardButtonPress:" destination="X1V-85-Nuw" eventType="touchUpInside" id="eKc-co-u5v"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0lf-dz-9bZ">
+                                <rect key="frame" x="0.0" y="344" width="375" height="274"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="8vZ-lo-mcc" firstAttribute="centerY" secondItem="4jv-yw-NO0" secondAttribute="centerY" id="5k7-5u-9gP"/>
+                            <constraint firstItem="uBD-59-p5D" firstAttribute="trailing" secondItem="0lf-dz-9bZ" secondAttribute="trailing" id="6kl-nx-wAb"/>
                             <constraint firstItem="vjD-fi-neI" firstAttribute="leading" secondItem="uBD-59-p5D" secondAttribute="leading" id="AlD-bW-gXN"/>
                             <constraint firstItem="uBD-59-p5D" firstAttribute="trailing" secondItem="vjD-fi-neI" secondAttribute="trailing" id="COc-P8-QY8"/>
                             <constraint firstItem="jVS-Zj-zB8" firstAttribute="centerY" secondItem="4jv-yw-NO0" secondAttribute="centerY" id="FVe-Cc-DMq"/>
                             <constraint firstItem="4jv-yw-NO0" firstAttribute="top" secondItem="Rev-V7-MOo" secondAttribute="bottom" id="Gca-AM-AtH"/>
                             <constraint firstItem="4jv-yw-NO0" firstAttribute="leading" secondItem="jVS-Zj-zB8" secondAttribute="trailing" constant="50" id="IhJ-g3-rwv"/>
+                            <constraint firstItem="0lf-dz-9bZ" firstAttribute="leading" secondItem="uBD-59-p5D" secondAttribute="leading" id="Jh4-AT-41d"/>
+                            <constraint firstItem="uBD-59-p5D" firstAttribute="bottom" secondItem="0lf-dz-9bZ" secondAttribute="bottom" id="O5S-tq-n9m"/>
                             <constraint firstItem="8vZ-lo-mcc" firstAttribute="leading" secondItem="4jv-yw-NO0" secondAttribute="trailing" constant="50" id="PNR-FR-7gU"/>
+                            <constraint firstItem="0lf-dz-9bZ" firstAttribute="top" secondItem="4jv-yw-NO0" secondAttribute="bottom" constant="10" id="Uvh-eI-Fwj"/>
                             <constraint firstItem="Rev-V7-MOo" firstAttribute="top" secondItem="uBD-59-p5D" secondAttribute="top" id="VS9-tZ-EPy"/>
                             <constraint firstItem="vjD-fi-neI" firstAttribute="top" secondItem="uBD-59-p5D" secondAttribute="top" id="WL0-fe-31f"/>
                             <constraint firstItem="uBD-59-p5D" firstAttribute="trailing" secondItem="Rev-V7-MOo" secondAttribute="trailing" id="cyP-w1-CMQ"/>
@@ -90,6 +98,7 @@
                         <outlet property="chartView" destination="vjD-fi-neI" id="fPW-BO-lgf"/>
                         <outlet property="discardButton" destination="8vZ-lo-mcc" id="4V8-Gc-mDB"/>
                         <outlet property="saveButton" destination="jVS-Zj-zB8" id="B8o-n8-abg"/>
+                        <outlet property="simpleRecordsTable" destination="0lf-dz-9bZ" id="EoV-rm-cTv"/>
                         <outlet property="startButton" destination="4jv-yw-NO0" id="FPH-Fx-ynI"/>
                         <outlet property="stopWatchTimeLabel" destination="Rev-V7-MOo" id="b4Z-RH-UGp"/>
                     </connections>

@@ -27,8 +27,10 @@ class StopWatchViewController: UIViewController {
         measureAccInput()
         setupGraph()
         setupStopWatch()
+        setupTableView()
         
     }
+    @IBOutlet weak var simpleRecordsTable: UITableView!
     
     private enum Constants {
         static let maximumPlottablePoints = 20
@@ -82,20 +84,57 @@ extension StopWatchViewController: StopWatchListener {
     }
     
     func stopWatchUpdate(elapsedTime: Double){
-        let decimalValue = Int((elapsedTime - Double(Int(elapsedTime))) * 100)
-        self.stopWatchTimeLabel.text = "\(Int(elapsedTime)):\(decimalValue >= 10 ? String(decimalValue) : "0\(decimalValue)")"
+        self.stopWatchTimeLabel.text = Recording.toHumanReadable(elapsedTime: elapsedTime)
     }
     
     func stateChanged(newState: StopWatchState) {
         changeElementVisiblity(newState: newState)
+        if newState == .default {
+            refreshTable()
+        }
     }
 }
 
 
 private class CubicLineSampleFillFormatter: IFillFormatter {
     func getFillLinePosition(dataSet: ILineChartDataSet, dataProvider: LineChartDataProvider) -> CGFloat {
-        return -10
+        return -5
     }
+}
+
+extension StopWatchViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return RecordLog.shared.records.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let recording = RecordLog.shared.records[indexPath.item]
+        let cell = UITableViewCell.init(style: .value1, reuseIdentifier: "cell")
+        
+        let date = Date(timeIntervalSince1970: recording.timeStarted)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
+        let hourFormatter = DateFormatter()
+        hourFormatter.dateFormat = "HH-mm"
+        let dateString = dateFormatter.string(from: date)
+        let hourString = hourFormatter.string(from: date)
+        
+        cell.textLabel?.text = dateString + " " + hourString
+        cell.detailTextLabel?.text = Recording.toHumanReadable(elapsedTime: recording.finalRecordingElapsed)
+        return cell
+    }
+    
+    public func setupTableView() {
+        simpleRecordsTable.delegate = self
+        simpleRecordsTable.dataSource = self
+        simpleRecordsTable.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    }
+    
+    public func refreshTable() {
+        simpleRecordsTable.reloadData()
+    }
+    
 }
 
 // MARK: - Accelerometer input
@@ -104,28 +143,22 @@ extension StopWatchViewController {
     func measureAccInput(){
         // Unfortunately accelerometer doesn't work on simulator, so we simulate the effect using timers and random number generation
         #if targetEnvironment(simulator)
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] (timer) in
-            let val = Double(arc4random_uniform(20) + 20)
-            self?.dataHistory.append(val)
-            if (self?.dataHistory.count)! > Constants.maximumPlottablePoints {
-                self?.dataHistory.remove(at: 0)
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] (timer) in
+                let val = Double(arc4random_uniform(20) + 20)
+                self?.dataHistory.append(val)
+                if (self?.dataHistory.count)! > Constants.maximumPlottablePoints {
+                    self?.dataHistory.remove(at: 0)
+                }
+                self?.updateData()
             }
-            self?.updateData()
-        }
         #else
-        CMMotionManager().startAccelerometerUpdates(to: OperationQueue.main) { [weak self](accData, error) in
-            guard let acc = accData?.acceleration else { return }
-            let absX = acc.x > 0 ? acc.x : acc.x * -1
-            let absY = acc.y > 0 ? acc.y : acc.y * -1
-            let absZ = acc.z > 0 ? acc.z : acc.z * -1
-            
-            self?.dataHistory.append(absX + absY + absZ)
-            if (self?.dataHistory.count)! > Constants.maximumPlottablePoints {
-                self?.dataHistory.remove(at: 0)
+            AccelerometerManager.shared.getData { [weak self] data in
+                self?.dataHistory.append(data)
+                if (self?.dataHistory.count)! > Constants.maximumPlottablePoints {
+                    self?.dataHistory.remove(at: 0)
+                }
+                self?.updateData()
             }
-            
-            self?.updateData()
-        }
         #endif
     }
     
@@ -160,4 +193,21 @@ extension StopWatchViewController {
         data.setDrawValues(false)
         chartView.data = data
     }
+}
+
+class AccelerometerManager {
+    public static let shared = AccelerometerManager()
+    
+    public func getData(data: @escaping (Double) -> (Void)) {
+        CMMotionManager().startAccelerometerUpdates(to: OperationQueue.main) { (accData, error) in
+            guard let acc = accData?.acceleration else { return }
+            let absX = acc.x > 0 ? acc.x : acc.x * -1
+            let absY = acc.y > 0 ? acc.y : acc.y * -1
+            let absZ = acc.z > 0 ? acc.z : acc.z * -1
+            let total = absX + absY + absZ
+            
+            data(total)
+        }
+    }
+    
 }
