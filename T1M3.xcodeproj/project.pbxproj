@@ -86,18 +86,42 @@
 		C42233FC21325E8C001A27AD /* T1M3 */ = {
 			isa = PBXGroup;
 			children = (
+				C4469E78213BB5DD0004DE1C /* Views */,
+				C4469E77213BB5CC0004DE1C /* Models */,
+				C4469E76213BB5B80004DE1C /* ViewControllers */,
 				C42233FD21325E8C001A27AD /* AppDelegate.swift */,
-				C42233FF21325E8C001A27AD /* ViewController.swift */,
-				C422340121325E8C001A27AD /* Main.storyboard */,
 				C422340421325E8E001A27AD /* Assets.xcassets */,
-				C422340621325E8E001A27AD /* LaunchScreen.storyboard */,
 				C422340921325E8E001A27AD /* Info.plist */,
+			);
+			path = T1M3;
+			sourceTree = "<group>";
+		};
+		C4469E76213BB5B80004DE1C /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
 				C422341121326129001A27AD /* StopWatchViewController.swift */,
+				C42233FF21325E8C001A27AD /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C4469E77213BB5CC0004DE1C /* Models */ = {
+			isa = PBXGroup;
+			children = (
 				C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */,
 				C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */,
 				C4E4F8322136B97C00506B6D /* RecordLog.swift */,
 			);
-			path = T1M3;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4469E78213BB5DD0004DE1C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C422340121325E8C001A27AD /* Main.storyboard */,
+				C422340621325E8E001A27AD /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
