@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public enum StopWatchState {
     case `default`
@@ -24,11 +25,21 @@ public protocol StopWatchListener {
 
 public class Recording {
     
+    public static var dummyRecording: Recording = {
+        let record = Recording()
+        record.timeStarted = Date().timeIntervalSince1970
+        record.timeFinished = record.timeStarted + 50
+        record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
+        record.weather = .rainy
+        return record
+    }()
+    
     public var timeStarted: Double = 0
     public var timeFinished: Double?
     public var pauseTimes: [(pauseTime: Double, resumeTime: Double)] = []
     public var accData: [(x: Double, y: Double)] = []
     public var weather: WeatherSituation = .cloudy
+    private var accRecorder: AccelerometerManager? = AccelerometerManager()
     
     public var totalRecordingElapsed: Double {
         let intermissions = pauseTimes.reduce(0) { $0 + $1.resumeTime - $1.pauseTime }
@@ -49,10 +60,7 @@ public class Recording {
     
     public func start() {
         timeStarted = Date().timeIntervalSince1970
-        AccelerometerManager.shared.getData { [weak self] (data) -> (Void) in
-            guard let strongself = self else { return }
-            strongself.accData.append((x: Date().timeIntervalSince1970 - strongself.timeStarted, y: data))
-        }
+        AccelerometerManager.shared.addReceiver(receiver: self)
         
         WeatherInformationManager().getWeatherInformation { [weak self] (weather) in
             self?.weather = weather
@@ -61,7 +69,17 @@ public class Recording {
     
     public func stopRecording() {
         timeFinished = Date().timeIntervalSince1970
+        AccelerometerManager.shared.removeReceiver(receiver: self)
+        accRecorder = nil
     }
+}
+
+extension Recording: AccDataReceiver {
+    public func newData(data: Double) {
+        accData.append((x: Double(Int(Date().timeIntervalSince1970 - timeStarted)), y: data))
+    }
+    
+    
 }
 
 
@@ -92,6 +110,7 @@ public class StopWatchController {
     }
     
     func resetStopWatch() {
+        recording.stopRecording()
         recording = Recording()
         currentState = .default
     }
@@ -103,6 +122,7 @@ public class StopWatchController {
     }
     
     func runStopWatch() {
+        recording.start()
         recording.timeStarted = Date().timeIntervalSince1970
 
         resumeTimer()

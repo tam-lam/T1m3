@@ -46,9 +46,9 @@
                             <constraint firstAttribute="width" constant="50" id="iCY-YZ-Mxc"/>
                         </constraints>
                     </imageView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYa-Rk-Xzb">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yYa-Rk-Xzb" customClass="LineChartView" customModule="Charts">
                         <rect key="frame" x="16" y="43" width="270" height="50"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="50" id="fth-m7-sLp"/>
                         </constraints>

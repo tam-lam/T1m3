@@ -52,20 +52,7 @@ class StopWatchViewController: UIViewController {
     
     func changeElementVisiblity(newState: StopWatchState) {
         let newState = StopWatchController.shared.currentState
-//        UIView.transition(with: chartView,
-//                          duration: Constants.animationDuration,
-//                          options: .transitionCrossDissolve,
-//                          animations: {
-//                            self.chartView.isHidden = newState != .default
-//        },
-//                          completion: nil)
-//        UIView.transition(with: stopWatchTimeLabel,
-//                          duration: Constants.animationDuration,
-//                          options: .transitionCrossDissolve,
-//                          animations: {
-//                            self.stopWatchTimeLabel.isHidden = newState == .default
-//        },
-//                          completion: nil)
+
         self.chartView.isHidden = newState != .default
         self.stopWatchTimeLabel.isHidden = newState == .default
         self.saveButton.isHidden = newState != .paused
@@ -96,8 +83,8 @@ extension StopWatchViewController: StopWatchListener {
 }
 
 
-private class CubicLineSampleFillFormatter: IFillFormatter {
-    func getFillLinePosition(dataSet: ILineChartDataSet, dataProvider: LineChartDataProvider) -> CGFloat {
+public class CubicLineSampleFillFormatter: IFillFormatter {
+    public func getFillLinePosition(dataSet: ILineChartDataSet, dataProvider: LineChartDataProvider) -> CGFloat {
         return -5
     }
 }
@@ -141,29 +128,22 @@ extension StopWatchViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+
 // MARK: - Accelerometer input
-extension StopWatchViewController {
+extension StopWatchViewController: AccDataReceiver {
+    
+    func newData(data: Double) {
+        self.dataHistory.append(data)
+        if (self.dataHistory.count) > Constants.maximumPlottablePoints {
+            self.dataHistory.remove(at: 0)
+        }
+        self.updateData()
+    }
+    
+    
     
     func measureAccInput(){
-        // Unfortunately accelerometer doesn't work on simulator, so we simulate the effect using timers and random number generation
-        #if targetEnvironment(simulator)
-            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] (timer) in
-                let val = Double(arc4random_uniform(20) + 20)
-                self?.dataHistory.append(val)
-                if (self?.dataHistory.count)! > Constants.maximumPlottablePoints {
-                    self?.dataHistory.remove(at: 0)
-                }
-                self?.updateData()
-            }
-        #else
-            AccelerometerManager.shared.getData { [weak self] data in
-                self?.dataHistory.append(data)
-                if (self?.dataHistory.count)! > Constants.maximumPlottablePoints {
-                    self?.dataHistory.remove(at: 0)
-                }
-                self?.updateData()
-            }
-        #endif
+        AccelerometerManager.shared.addReceiver(receiver: self)
     }
     
     func setupGraph() {
@@ -199,19 +179,44 @@ extension StopWatchViewController {
     }
 }
 
+public protocol AccDataReceiver {
+    
+    func newData(data: Double)
+
+}
 class AccelerometerManager {
     public static let shared = AccelerometerManager()
     
-    public func getData(data: @escaping (Double) -> (Void)) {
+    private var receivers: [AccDataReceiver] = []
+    public func addReceiver(receiver: AccDataReceiver) {
+        receivers.append(receiver)
+    }
+    public func removeReceiver(receiver: AccDataReceiver) {
+        let index = receivers.index { (receiverX: AccDataReceiver) -> Bool in
+            return (receiverX as AnyObject === receiver as AnyObject)
+        }
+        if let index = index {
+            receivers.remove(at: index)
+        }
+    }
+    
+    init() {
+        #if targetEnvironment(simulator)
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
+            let val = Double(arc4random_uniform(20) + 20)
+            _ = self.receivers.compactMap{$0.newData(data: val)}
+        }
+        #else
         CMMotionManager().startAccelerometerUpdates(to: OperationQueue.main) { (accData, error) in
             guard let acc = accData?.acceleration else { return }
             let absX = acc.x > 0 ? acc.x : acc.x * -1
             let absY = acc.y > 0 ? acc.y : acc.y * -1
             let absZ = acc.z > 0 ? acc.z : acc.z * -1
             let total = absX + absY + absZ
-            
-            data(total)
+            receivers.flatMap{$0.newData(data: val)}
         }
+        #endif
+    
     }
     
 }
