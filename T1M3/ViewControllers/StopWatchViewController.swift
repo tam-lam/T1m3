@@ -102,6 +102,15 @@ private class CubicLineSampleFillFormatter: IFillFormatter {
     }
 }
 
+extension Double {
+    func formatTimestamp(withFormat format: String) -> String {
+        let date = Date(timeIntervalSince1970: self)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: date)
+    }
+}
+
 extension StopWatchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,13 +121,8 @@ extension StopWatchViewController: UITableViewDelegate, UITableViewDataSource {
         let recording = RecordLog.shared.records[indexPath.item]
         let cell = UITableViewCell.init(style: .value1, reuseIdentifier: "cell")
         
-        let date = Date(timeIntervalSince1970: recording.timeStarted)
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy"
-        let hourFormatter = DateFormatter()
-        hourFormatter.dateFormat = "HH-mm"
-        let dateString = dateFormatter.string(from: date)
-        let hourString = hourFormatter.string(from: date)
+        let dateString = recording.timeStarted.formatTimestamp(withFormat: "MM-dd-yyyy")
+        let hourString = recording.timeStarted.formatTimestamp(withFormat: "HH:mm")
         
         cell.textLabel?.text = dateString + " " + hourString
         cell.detailTextLabel?.text = Recording.toHumanReadable(elapsedTime: recording.finalRecordingElapsed)

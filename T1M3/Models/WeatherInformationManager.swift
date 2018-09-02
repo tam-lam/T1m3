@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public enum WeatherSituation: Int {
     case sunny
@@ -14,6 +15,22 @@ public enum WeatherSituation: Int {
     case cloudy
     case rainy
     case mixed
+    
+    var image: UIImage {
+        switch self {
+        case .sunny:
+            return #imageLiteral(resourceName: "Sunny")
+        case .partlyCloudy:
+            return #imageLiteral(resourceName: "PartlyCloudy")
+        case .cloudy:
+            return #imageLiteral(resourceName: "Cloudy")
+        case .rainy:
+            return #imageLiteral(resourceName: "Rain")
+        case .mixed:
+            return #imageLiteral(resourceName: "Mixed")
+            
+        }
+    }
 }
 
 class WeatherInformationManager {

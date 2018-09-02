@@ -14,6 +14,9 @@
 		C422340521325E8E001A27AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C422340421325E8E001A27AD /* Assets.xcassets */; };
 		C422340821325E8E001A27AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C422340621325E8E001A27AD /* LaunchScreen.storyboard */; };
 		C422341221326129001A27AD /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422341121326129001A27AD /* StopWatchViewController.swift */; };
+		C4469E7A213BB7580004DE1C /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4469E79213BB7580004DE1C /* RecordsViewController.swift */; };
+		C4469E7D213BB8D70004DE1C /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4469E7B213BB8D70004DE1C /* RecordTableViewCell.swift */; };
+		C4469E7E213BB8D70004DE1C /* RecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4469E7C213BB8D70004DE1C /* RecordTableViewCell.xib */; };
 		C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */; };
 		C4E4F8312136B0C300506B6D /* WeatherInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */; };
 		C4E4F8332136B97C00506B6D /* RecordLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4F8322136B97C00506B6D /* RecordLog.swift */; };
@@ -30,6 +33,9 @@
 		C422340721325E8E001A27AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C422340921325E8E001A27AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C422341121326129001A27AD /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
+		C4469E79213BB7580004DE1C /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
+		C4469E7B213BB8D70004DE1C /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
+		C4469E7C213BB8D70004DE1C /* RecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordTableViewCell.xib; sourceTree = "<group>"; };
 		C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchController.swift; sourceTree = "<group>"; };
 		C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInformationManager.swift; sourceTree = "<group>"; };
 		C4E4F8322136B97C00506B6D /* RecordLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordLog.swift; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			children = (
 				C422341121326129001A27AD /* StopWatchViewController.swift */,
 				C42233FF21325E8C001A27AD /* ViewController.swift */,
+				C4469E79213BB7580004DE1C /* RecordsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -120,6 +127,8 @@
 			children = (
 				C422340121325E8C001A27AD /* Main.storyboard */,
 				C422340621325E8E001A27AD /* LaunchScreen.storyboard */,
+				C4469E7B213BB8D70004DE1C /* RecordTableViewCell.swift */,
+				C4469E7C213BB8D70004DE1C /* RecordTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +195,7 @@
 			files = (
 				C422340821325E8E001A27AD /* LaunchScreen.storyboard in Resources */,
 				C422340521325E8E001A27AD /* Assets.xcassets in Resources */,
+				C4469E7E213BB8D70004DE1C /* RecordTableViewCell.xib in Resources */,
 				C422340321325E8C001A27AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,10 +247,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C422341221326129001A27AD /* StopWatchViewController.swift in Sources */,
+				C4469E7A213BB7580004DE1C /* RecordsViewController.swift in Sources */,
 				C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */,
 				C422340021325E8C001A27AD /* ViewController.swift in Sources */,
 				C4E4F8312136B0C300506B6D /* WeatherInformationManager.swift in Sources */,
 				C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */,
+				C4469E7D213BB8D70004DE1C /* RecordTableViewCell.swift in Sources */,
 				C4E4F8332136B97C00506B6D /* RecordLog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
