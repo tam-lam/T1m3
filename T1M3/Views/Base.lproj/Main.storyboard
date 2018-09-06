@@ -49,44 +49,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-yw-NO0">
-                                <rect key="frame" x="170" y="304" width="34" height="30"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="startStopWatchButtonPress:" destination="X1V-85-Nuw" eventType="touchUpInside" id="6Nh-pW-Y6L"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="8KN-xb-x5G">
+                                <rect key="frame" x="0.0" y="-14.5" width="375" height="667"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vjD-fi-neI" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="20" width="375" height="284"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="281"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rev-V7-MOo">
-                                <rect key="frame" x="0.0" y="20" width="375" height="284"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="100"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="281"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="100"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jVS-Zj-zB8">
-                                <rect key="frame" x="86" y="304" width="34" height="30"/>
-                                <state key="normal" title="Save"/>
+                                <rect key="frame" x="71" y="301" width="45" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="saveButtonPress:" destination="X1V-85-Nuw" eventType="touchUpInside" id="QgJ-Kf-gcp"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8vZ-lo-mcc">
-                                <rect key="frame" x="254" y="304" width="53" height="30"/>
-                                <state key="normal" title="Discard"/>
+                                <rect key="frame" x="259" y="301" width="69" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Discard">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="discardButtonPress:" destination="X1V-85-Nuw" eventType="touchUpInside" id="eKc-co-u5v"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0lf-dz-9bZ">
-                                <rect key="frame" x="0.0" y="344" width="375" height="274"/>
+                                <rect key="frame" x="0.0" y="347" width="375" height="271"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4jv-yw-NO0">
+                                <rect key="frame" x="138" y="304" width="93" height="30"/>
+                                <color key="backgroundColor" red="0.60784313725490191" green="0.17647058823529413" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="startStopWatchButtonPress:" destination="X1V-85-Nuw" eventType="touchUpInside" id="6Nh-pW-Y6L"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="uBD-59-p5D" firstAttribute="trailing" secondItem="8KN-xb-x5G" secondAttribute="trailing" id="0JD-i2-9zc"/>
                             <constraint firstItem="8vZ-lo-mcc" firstAttribute="centerY" secondItem="4jv-yw-NO0" secondAttribute="centerY" id="5k7-5u-9gP"/>
                             <constraint firstItem="uBD-59-p5D" firstAttribute="trailing" secondItem="0lf-dz-9bZ" secondAttribute="trailing" id="6kl-nx-wAb"/>
                             <constraint firstItem="vjD-fi-neI" firstAttribute="leading" secondItem="uBD-59-p5D" secondAttribute="leading" id="AlD-bW-gXN"/>
@@ -101,9 +121,14 @@
                             <constraint firstItem="Rev-V7-MOo" firstAttribute="top" secondItem="uBD-59-p5D" secondAttribute="top" id="VS9-tZ-EPy"/>
                             <constraint firstItem="vjD-fi-neI" firstAttribute="top" secondItem="uBD-59-p5D" secondAttribute="top" id="WL0-fe-31f"/>
                             <constraint firstItem="uBD-59-p5D" firstAttribute="trailing" secondItem="Rev-V7-MOo" secondAttribute="trailing" id="cyP-w1-CMQ"/>
+                            <constraint firstItem="8KN-xb-x5G" firstAttribute="height" secondItem="soI-7d-Dlg" secondAttribute="height" id="fRl-m1-tPw"/>
                             <constraint firstItem="4jv-yw-NO0" firstAttribute="top" secondItem="vjD-fi-neI" secondAttribute="bottom" id="pM0-Gt-FVy"/>
+                            <constraint firstItem="8KN-xb-x5G" firstAttribute="centerX" secondItem="uBD-59-p5D" secondAttribute="centerX" id="rmx-E4-WMu"/>
+                            <constraint firstItem="8KN-xb-x5G" firstAttribute="width" secondItem="soI-7d-Dlg" secondAttribute="width" id="sp9-6b-YMz"/>
                             <constraint firstItem="4jv-yw-NO0" firstAttribute="centerY" secondItem="uBD-59-p5D" secondAttribute="centerY" id="t5M-WG-T0N"/>
+                            <constraint firstItem="8KN-xb-x5G" firstAttribute="leading" secondItem="uBD-59-p5D" secondAttribute="leading" id="tTF-XU-xP7"/>
                             <constraint firstItem="Rev-V7-MOo" firstAttribute="leading" secondItem="uBD-59-p5D" secondAttribute="leading" id="tm2-zT-ZSh"/>
+                            <constraint firstItem="8KN-xb-x5G" firstAttribute="centerY" secondItem="uBD-59-p5D" secondAttribute="centerY" id="v20-Ch-YnY"/>
                             <constraint firstItem="4jv-yw-NO0" firstAttribute="centerX" secondItem="uBD-59-p5D" secondAttribute="centerX" id="z8j-gn-haA"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uBD-59-p5D"/>
@@ -150,8 +175,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="X1V-85-Nuw" kind="relationship" relationship="viewControllers" id="mbB-Ir-lje"/>
-                        <segue destination="1jZ-q9-U8u" kind="relationship" relationship="viewControllers" id="6h9-7Q-6nK"/>
                         <segue destination="Jia-Ni-W30" kind="relationship" relationship="viewControllers" id="lQ8-uu-4JN"/>
+                        <segue destination="1jZ-q9-U8u" kind="relationship" relationship="viewControllers" id="6h9-7Q-6nK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VL7-Sk-3E3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -178,4 +203,7 @@
             <point key="canvasLocation" x="989.60000000000002" y="-397.15142428785612"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="1920" height="1080"/>
+    </resources>
 </document>

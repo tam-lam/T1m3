@@ -71,6 +71,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B8036DD62140EF7D00062B71 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C422340421325E8E001A27AD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C42233F121325E8C001A27AD = {
 			isa = PBXGroup;
 			children = (
@@ -92,11 +100,11 @@
 		C42233FC21325E8C001A27AD /* T1M3 */ = {
 			isa = PBXGroup;
 			children = (
+				B8036DD62140EF7D00062B71 /* Resources */,
 				C4469E78213BB5DD0004DE1C /* Views */,
 				C4469E77213BB5CC0004DE1C /* Models */,
 				C4469E76213BB5B80004DE1C /* ViewControllers */,
 				C42233FD21325E8C001A27AD /* AppDelegate.swift */,
-				C422340421325E8E001A27AD /* Assets.xcassets */,
 				C422340921325E8E001A27AD /* Info.plist */,
 			);
 			path = T1M3;
