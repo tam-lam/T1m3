@@ -24,6 +24,8 @@ class StopWatchViewController: UIViewController {
     var dataHistory = Array(repeating: 0.0, count: Constants.maximumPlottablePoints)
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         measureAccInput()
         setupGraph()
         setupStopWatch()
