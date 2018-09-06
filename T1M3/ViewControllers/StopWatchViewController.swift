@@ -138,6 +138,14 @@ extension StopWatchViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.textLabel?.text = dateString + " " + hourString
         cell.detailTextLabel?.text = Recording.toHumanReadable(elapsedTime: recording.finalRecordingElapsed)
+        cell.textLabel?.textColor = UIColor.white
+        cell.detailTextLabel?.textColor = UIColor.white
+        tableView.backgroundColor = .clear
+        cell.backgroundColor = .clear
+        
+        tableView.tableFooterView = UIView()
+        
+
         return cell
     }
     
