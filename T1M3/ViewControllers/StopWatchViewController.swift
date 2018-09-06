@@ -33,6 +33,7 @@ class StopWatchViewController: UIViewController {
         
     }
     @IBOutlet weak var simpleRecordsTable: UITableView!
+    @IBOutlet weak var btnGroupBG: UIView!
     
     private enum Constants {
         static let maximumPlottablePoints = 20
@@ -56,13 +57,35 @@ class StopWatchViewController: UIViewController {
         let newState = StopWatchController.shared.currentState
 
         self.chartView.isHidden = newState != .default
-        self.stopWatchTimeLabel.isHidden = newState == .default
+//        self.stopWatchTimeLabel.isHidden = newState == .default
         self.saveButton.isHidden = newState != .paused
         self.discardButton.isHidden = newState != .paused
         
         startButton.setTitle(newState == .default ? "Start" : newState == .running ? "Pause" : "Resume" , for: .normal)
+        changeStopwatchBtnColor()
     }
+    func changeStopwatchBtnColor(){
+        let newState = StopWatchController.shared.currentState
+        if newState == .running
+        {
+            startButton.backgroundColor = UIColor.red
+            self.btnGroupBG.isHidden = true
 
+
+        }
+        if newState == .paused
+        {
+            startButton.backgroundColor = UIColor.green
+            self.btnGroupBG.isHidden = false
+
+            
+        }
+        if newState == .default
+        {
+            startButton.backgroundColor = UIColor(red: 155.0/255.0, green: 45.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+            self.btnGroupBG.isHidden = true
+        }
+    }
 }
 
 extension StopWatchViewController: StopWatchListener {
