@@ -10,10 +10,10 @@
 		31EFB52DB5005C3753282599 /* Pods_T1M3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513DD7B4BEAB38BF7E9CFC49 /* Pods_T1M3.framework */; };
 		B8ADB8012142140700AD7DA7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */; };
 		B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */; };
+		B8ADB80521423D5900AD7DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8ADB80421423D5900AD7DA7 /* Assets.xcassets */; };
 		C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42233FD21325E8C001A27AD /* AppDelegate.swift */; };
 		C422340021325E8C001A27AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42233FF21325E8C001A27AD /* ViewController.swift */; };
 		C422340321325E8C001A27AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C422340121325E8C001A27AD /* Main.storyboard */; };
-		C422340521325E8E001A27AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C422340421325E8E001A27AD /* Assets.xcassets */; };
 		C422340821325E8E001A27AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C422340621325E8E001A27AD /* LaunchScreen.storyboard */; };
 		C422341221326129001A27AD /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422341121326129001A27AD /* StopWatchViewController.swift */; };
 		C4469E7A213BB7580004DE1C /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4469E79213BB7580004DE1C /* RecordsViewController.swift */; };
@@ -29,11 +29,11 @@
 		92AC16707FEAF1E95E7E7E89 /* Pods-T1M3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T1M3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-T1M3/Pods-T1M3.debug.xcconfig"; sourceTree = "<group>"; };
 		B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
+		B8ADB80421423D5900AD7DA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C42233FA21325E8C001A27AD /* T1M3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T1M3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42233FD21325E8C001A27AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C42233FF21325E8C001A27AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C422340221325E8C001A27AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C422340421325E8E001A27AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C422340721325E8E001A27AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C422340921325E8E001A27AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C422341121326129001A27AD /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 		B8036DD62140EF7D00062B71 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				C422340421325E8E001A27AD /* Assets.xcassets */,
+				B8ADB80421423D5900AD7DA7 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -208,8 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C422340821325E8E001A27AD /* LaunchScreen.storyboard in Resources */,
-				C422340521325E8E001A27AD /* Assets.xcassets in Resources */,
 				C4469E7E213BB8D70004DE1C /* RecordTableViewCell.xib in Resources */,
+				B8ADB80521423D5900AD7DA7 /* Assets.xcassets in Resources */,
 				C422340321325E8C001A27AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
