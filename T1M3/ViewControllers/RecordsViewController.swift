@@ -51,6 +51,7 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    //Ediding mode - swaping row
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let recordIndex = sourceIndexPath.row
         let destinationIndex = destinationIndexPath.row
@@ -58,6 +59,11 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         RecordLog.shared.removeRecord(index: recordIndex)
         RecordLog.shared.addRecordAtIndex(record: record, destinationIndex: destinationIndex)
     }
-    
-    
+    //Editing mode - delete row
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if(editingStyle == .delete){
+            RecordLog.shared.removeRecord(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 }
