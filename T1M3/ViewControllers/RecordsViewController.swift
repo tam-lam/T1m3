@@ -12,6 +12,14 @@ import UIKit
 class RecordsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBAction func editAction(_ sender: UIButton) {
+        self.tableView.isEditing = !self.tableView.isEditing
+        if (self.tableView.isEditing){
+            sender.setTitle("Done", for: .normal)
+        } else{
+            sender.setTitle("Edit", for: .normal)
+        }
+    }
     
     override func viewDidLoad() {
 //        self.title = "Records"
@@ -43,4 +51,13 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let recordIndex = sourceIndexPath.row
+        let destinationIndex = destinationIndexPath.row
+        let record = RecordLog.shared.records[recordIndex]
+        RecordLog.shared.removeRecord(index: recordIndex)
+        RecordLog.shared.addRecordAtIndex(record: record, destinationIndex: destinationIndex)
+    }
+    
+    
 }

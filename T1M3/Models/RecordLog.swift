@@ -16,4 +16,13 @@ class RecordLog {
     public func addRecord(record: Recording) {
         records.append(record)
     }
+    public func addRecordAtIndex(record: Recording, destinationIndex: Int){
+        records.insert(record, at: destinationIndex)
+    }
+    public func removeRecord(index: Int){
+        if records.indices.contains(index){
+            records.remove(at: index)
+        }
+    }
+        
 }
