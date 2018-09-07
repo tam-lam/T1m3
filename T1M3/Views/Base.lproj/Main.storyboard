@@ -237,13 +237,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="nIE-Ow-TO3">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9X-9y-bso">
                                 <rect key="frame" x="16" y="79" width="191" height="41"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="34"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmx-fx-rfm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmx-fx-rfm" userLabel="form">
                                 <rect key="frame" x="20" y="140" width="335" height="360"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -255,20 +258,52 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="nIE-Ow-TO3">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cl1-9O-lDW">
+                                <rect key="frame" x="20" y="566" width="335" height="36"/>
+                                <color key="backgroundColor" red="0.72941176470588232" green="0.082352941176470587" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Delete">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTm-fl-Kfl">
+                                <rect key="frame" x="20" y="520" width="335" height="36"/>
+                                <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Cl1-9O-lDW" firstAttribute="top" secondItem="KTm-fl-Kfl" secondAttribute="bottom" constant="10" id="4m9-ke-OxS"/>
+                            <constraint firstItem="KTm-fl-Kfl" firstAttribute="leading" secondItem="Nmx-fx-rfm" secondAttribute="leading" id="4pj-AX-SBA"/>
                             <constraint firstItem="nIE-Ow-TO3" firstAttribute="width" secondItem="8BG-nt-hbw" secondAttribute="width" id="FvT-Ud-B1r"/>
+                            <constraint firstItem="Cl1-9O-lDW" firstAttribute="leading" secondItem="Nmx-fx-rfm" secondAttribute="leading" id="G5l-g4-tJj"/>
+                            <constraint firstItem="Cl1-9O-lDW" firstAttribute="centerX" secondItem="Nmx-fx-rfm" secondAttribute="centerX" id="GiF-mD-0HV"/>
                             <constraint firstItem="nIE-Ow-TO3" firstAttribute="centerY" secondItem="8BG-nt-hbw" secondAttribute="centerY" id="Jrj-cG-Gze"/>
+                            <constraint firstItem="KTm-fl-Kfl" firstAttribute="centerX" secondItem="Nmx-fx-rfm" secondAttribute="centerX" id="L1C-AY-Fr0"/>
                             <constraint firstItem="nIE-Ow-TO3" firstAttribute="centerX" secondItem="8BG-nt-hbw" secondAttribute="centerX" id="L5s-iU-mcq"/>
+                            <constraint firstItem="KTm-fl-Kfl" firstAttribute="top" secondItem="Nmx-fx-rfm" secondAttribute="bottom" constant="20" id="P0T-qz-cH8"/>
                             <constraint firstItem="nIE-Ow-TO3" firstAttribute="height" secondItem="8BG-nt-hbw" secondAttribute="height" id="ayy-cu-nUl"/>
                             <constraint firstItem="d07-Du-NeV" firstAttribute="trailing" secondItem="Nmx-fx-rfm" secondAttribute="trailing" constant="20" id="cgV-Qz-sYA"/>
                             <constraint firstItem="A9X-9y-bso" firstAttribute="leading" secondItem="d07-Du-NeV" secondAttribute="leading" constant="16" id="f7n-1I-tT3"/>
                             <constraint firstItem="Nmx-fx-rfm" firstAttribute="leading" secondItem="d07-Du-NeV" secondAttribute="leading" constant="20" id="onL-6I-lRv"/>
+                            <constraint firstItem="Cl1-9O-lDW" firstAttribute="trailing" secondItem="Nmx-fx-rfm" secondAttribute="trailing" id="rah-9q-smt"/>
+                            <constraint firstItem="KTm-fl-Kfl" firstAttribute="width" secondItem="Nmx-fx-rfm" secondAttribute="width" id="shM-Cu-Wij"/>
                             <constraint firstItem="A9X-9y-bso" firstAttribute="top" secondItem="d07-Du-NeV" secondAttribute="top" constant="15" id="u75-Of-GsW"/>
+                            <constraint firstItem="KTm-fl-Kfl" firstAttribute="trailing" secondItem="Nmx-fx-rfm" secondAttribute="trailing" id="yWg-UC-SRu"/>
                             <constraint firstItem="Nmx-fx-rfm" firstAttribute="top" secondItem="A9X-9y-bso" secondAttribute="bottom" constant="20" id="zUD-0N-QIt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d07-Du-NeV"/>
@@ -671,21 +706,6 @@
             </objects>
             <point key="canvasLocation" x="989.60000000000002" y="-397.15142428785612"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="5YA-SW-sZ6">
-            <objects>
-                <viewController id="ryz-iL-Y5M" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="YnJ-Fr-Ror">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="TCw-4l-TvW"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KUT-GE-anb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="97" y="-276"/>
-        </scene>
         <!--Settings-->
         <scene sceneID="EaU-u8-9gm">
             <objects>
@@ -710,20 +730,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sq-5d-Yj0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="989.60000000000002" y="1151.8740629685158"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="SD7-z5-W46">
-            <objects>
-                <viewController id="p2U-VH-cf6" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Aae-ac-zo7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="S8W-Z3-stt"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xGo-4O-ZpL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
