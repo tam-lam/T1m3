@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		31EFB52DB5005C3753282599 /* Pods_T1M3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513DD7B4BEAB38BF7E9CFC49 /* Pods_T1M3.framework */; };
+		B8ADB8012142140700AD7DA7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */; };
 		C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42233FD21325E8C001A27AD /* AppDelegate.swift */; };
 		C422340021325E8C001A27AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42233FF21325E8C001A27AD /* ViewController.swift */; };
 		C422340321325E8C001A27AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C422340121325E8C001A27AD /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		513DD7B4BEAB38BF7E9CFC49 /* Pods_T1M3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T1M3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AC16707FEAF1E95E7E7E89 /* Pods-T1M3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T1M3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-T1M3/Pods-T1M3.debug.xcconfig"; sourceTree = "<group>"; };
+		B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		C42233FA21325E8C001A27AD /* T1M3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T1M3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42233FD21325E8C001A27AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C42233FF21325E8C001A27AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				C422341121326129001A27AD /* StopWatchViewController.swift */,
 				C42233FF21325E8C001A27AD /* ViewController.swift */,
 				C4469E79213BB7580004DE1C /* RecordsViewController.swift */,
+				B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */,
 				C4469E7D213BB8D70004DE1C /* RecordTableViewCell.swift in Sources */,
 				C4E4F8332136B97C00506B6D /* RecordLog.swift in Sources */,
+				B8ADB8012142140700AD7DA7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
