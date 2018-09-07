@@ -34,5 +34,9 @@ class RecordLog {
     public func setSelectedIndex(index:Int){
         self.selectedIndex = index
     }
+    public func getSelectedRecord() ->Recording {
+        let record = RecordLog.shared.records[selectedIndex]
+        return record
+    }
         
 }

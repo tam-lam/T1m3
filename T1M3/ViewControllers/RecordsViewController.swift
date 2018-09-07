@@ -69,6 +69,7 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        selectedIndex = indexPath.row
+        RecordLog.shared.setSelectedIndex(index: indexPath.row)
         performSegue(withIdentifier: "recordDetailSegue", sender: self)
     }
 }

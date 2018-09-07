@@ -10,8 +10,17 @@ import UIKit
 
 class RecordDetailViewController: UIViewController {
 
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var notes: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        let record = RecordLog.shared.getSelectedRecord()
+        self.name.text = record.timeStarted.formatTimestamp(withFormat: "HH-mm")
+        self.time.text = Recording.toHumanReadable(elapsedTime: record.finalRecordingElapsed)
+
+        
 
         // Do any additional setup after loading the view.
     }
