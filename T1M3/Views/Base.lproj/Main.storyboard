@@ -66,11 +66,58 @@
                     <navigationItem key="navigationItem" title="T1m3." id="VAb-NF-wr5"/>
                     <connections>
                         <outlet property="tableView" destination="Mdw-hi-5hL" id="Z2f-bN-KLl"/>
+                        <segue destination="HcN-Yc-N6j" kind="show" identifier="recordDetailSegue" id="HJw-oA-T5j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kjE-2I-oPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1928.8" y="-397.15142428785612"/>
+        </scene>
+        <!--Record Detail View Controller-->
+        <scene sceneID="Unr-4q-4FA">
+            <objects>
+                <viewController id="HcN-Yc-N6j" customClass="RecordDetailViewController" customModule="T1M3" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JJz-PO-3bd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="b5Y-ff-Rqd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Records" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Of0-pl-TKf">
+                                <rect key="frame" x="16" y="79" width="136.5" height="41"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="34"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFM-vc-EtR">
+                                <rect key="frame" x="321" y="79" width="38" height="36"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="editAction:" destination="j92-u9-Fgm" eventType="touchUpInside" id="HXj-QY-hwb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b5Y-ff-Rqd" firstAttribute="centerX" secondItem="JJz-PO-3bd" secondAttribute="centerX" id="3fB-by-hMr"/>
+                            <constraint firstItem="b5Y-ff-Rqd" firstAttribute="width" secondItem="JJz-PO-3bd" secondAttribute="width" id="5Dv-lz-E3d"/>
+                            <constraint firstItem="Of0-pl-TKf" firstAttribute="top" secondItem="9H6-8P-iOp" secondAttribute="top" constant="15" id="9TT-rj-Iem"/>
+                            <constraint firstItem="b5Y-ff-Rqd" firstAttribute="height" secondItem="JJz-PO-3bd" secondAttribute="height" id="EpY-4S-N9q"/>
+                            <constraint firstItem="9H6-8P-iOp" firstAttribute="trailing" secondItem="KFM-vc-EtR" secondAttribute="trailing" constant="16" id="FOS-AF-vcN"/>
+                            <constraint firstItem="Of0-pl-TKf" firstAttribute="leading" secondItem="9H6-8P-iOp" secondAttribute="leading" constant="16" id="IV0-Q2-3ER"/>
+                            <constraint firstItem="b5Y-ff-Rqd" firstAttribute="centerY" secondItem="JJz-PO-3bd" secondAttribute="centerY" id="pLJ-vC-p0T"/>
+                            <constraint firstItem="KFM-vc-EtR" firstAttribute="top" secondItem="9H6-8P-iOp" secondAttribute="top" constant="15" id="xHf-bh-e3F"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9H6-8P-iOp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3fq-CZ-Wjv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2942" y="-397"/>
         </scene>
         <!--Stopwatch-->
         <scene sceneID="tZU-Yo-F8j">

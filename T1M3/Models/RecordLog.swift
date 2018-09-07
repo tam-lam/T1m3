@@ -9,8 +9,12 @@
 import Foundation
 
 class RecordLog {
+    var selectedIndex : Int
     public  static let shared = RecordLog()
     
+    private init(){
+        self.selectedIndex = 0
+    }
     public private(set) var records: [Recording] = []
     
     public func addRecord(record: Recording) {
@@ -23,6 +27,12 @@ class RecordLog {
         if records.indices.contains(index){
             records.remove(at: index)
         }
+    }
+    public func getSelectedIndex() ->Int {
+        return selectedIndex
+    }
+    public func setSelectedIndex(index:Int){
+        self.selectedIndex = index
     }
         
 }

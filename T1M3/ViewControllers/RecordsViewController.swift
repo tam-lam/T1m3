@@ -51,6 +51,7 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
+    
     //Ediding mode - swaping row
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let recordIndex = sourceIndexPath.row
@@ -65,5 +66,9 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
             RecordLog.shared.removeRecord(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        selectedIndex = indexPath.row
+        performSegue(withIdentifier: "recordDetailSegue", sender: self)
     }
 }
