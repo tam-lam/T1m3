@@ -18,7 +18,7 @@ class EditRecordViewController: UIViewController {
         super.viewDidLoad()
         let record = RecordLog.shared.getSelectedRecord()
         loadRecord(record: record)
-        setupInputPickers()
+        setupKeyboardInputForFields()
         setupEndEditingOnTap()
     }
     
@@ -28,14 +28,17 @@ class EditRecordViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
     //Setup date and time keyboard inputs for date and time field
-    func setupInputPickers(){
+    //Setup duration input to use numberpad
+    func setupKeyboardInputForFields(){
         var datePicker = UIDatePicker()
         var timePicker = UIDatePicker()
         timePicker.datePickerMode = .time
         datePicker.datePickerMode = .date
         dateTextField.inputView = datePicker
         timeTextField.inputView = timePicker
+        durationTextField.keyboardType = UIKeyboardType.numberPad
         datePicker.addTarget(self, action: #selector(EditRecordViewController.dateChanged(datePicker:)), for: .valueChanged)
         timePicker.addTarget(self, action: #selector(EditRecordViewController.timeChanged(timePicker:)), for: .valueChanged)
         
@@ -65,21 +68,12 @@ class EditRecordViewController: UIViewController {
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
     }
+    
     func loadRecord(record: Recording){
         self.dateTextField.text = record.timeStarted.formatTimestamp(withFormat: "MM-dd-yyyy")
         self.timeTextField.text = record.timeStarted.formatTimestamp(withFormat: "HH:mm")
         self.durationTextField.text = Recording.toHumanReadable(elapsedTime: record.finalRecordingElapsed)
         self.noteTextField.text = record.getNotes()
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
