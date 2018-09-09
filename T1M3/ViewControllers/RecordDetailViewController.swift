@@ -19,29 +19,22 @@ class RecordDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let record = RecordLog.shared.getSelectedRecord()
+        self.updateDetail(record: record)
+        self.sideTableView.delegate = self
+        self.sideTableView.dataSource = self
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        self.sideTableView.reloadData()
+    }
+    
+    func updateDetail(record: Recording){
         let dateString = record.timeStarted.formatTimestamp(withFormat: "MM-dd-yyyy")
         let timeString =  record.timeStarted.formatTimestamp(withFormat: "HH:mm")
         let durationString = Recording.toHumanReadable(elapsedTime: record.finalRecordingElapsed)
         self.dateLbl.text = "\(dateString)"
         self.timeLbl.text = "Time: \(timeString)"
         self.durationLbl.text = "Duration: \(durationString)"
-        self.sideTableView.delegate = self
-        self.sideTableView.dataSource = self
-//        self.sideTableView.register(UINib(nibName: "SideTableCell", bundle: nil), forCellReuseIdentifier: "SideTableCell")
-        
-
-        // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        self.sideTableView.reloadData()
-    }
-    
-
 }
 extension RecordDetailViewController: UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -54,6 +47,11 @@ extension RecordDetailViewController: UITableViewDataSource,UITableViewDelegate{
         cell.setup(record: record)
         return cell
     }
-    
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //        selectedIndex = indexPath.row
+        RecordLog.shared.setSelectedIndex(index: indexPath.row)
+        let record = RecordLog.shared.getSelectedRecord()
+        self.updateDetail(record: record)
+
+    }
 }
