@@ -47,6 +47,9 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         let record = RecordLog.shared.records[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "RecordTableViewCell") as? RecordTableViewCell {
             cell.setup(record: record)
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
+            cell.selectedBackgroundView = backgroundView
             return cell
         }
         return UITableViewCell()

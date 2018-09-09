@@ -45,6 +45,9 @@ extension RecordDetailViewController: UITableViewDataSource,UITableViewDelegate{
         let record = RecordLog.shared.records[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "SideTableCell") as! SideTableCell
         cell.setup(record: record)
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 0.2)
+        cell.selectedBackgroundView = backgroundView
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
