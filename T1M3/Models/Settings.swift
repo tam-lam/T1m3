@@ -9,9 +9,9 @@
 import Foundation
 import UIKit
 class Settings{
-    var lightBgImage : UIImage
-    var darkBgImage : UIImage
-    var bgImage :UIImage
+    private let lightBgImage : UIImage
+    private let darkBgImage : UIImage
+    private var bgImage :UIImage
     
     public static let shared = Settings()
     
