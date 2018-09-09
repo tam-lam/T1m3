@@ -34,6 +34,7 @@ class RecordDetailViewController: UIViewController {
         self.dateLbl.text = "\(dateString)"
         self.timeLbl.text = "Time: \(timeString)"
         self.durationLbl.text = "Duration: \(durationString)"
+        self.notes.text = record.getNotes()
     }
 }
 extension RecordDetailViewController: UITableViewDataSource,UITableViewDelegate{

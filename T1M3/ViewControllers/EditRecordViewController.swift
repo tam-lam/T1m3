@@ -23,6 +23,7 @@ class EditRecordViewController: UIViewController {
         self.dateTextField.text = record.timeStarted.formatTimestamp(withFormat: "MM-dd-yyyy")
         self.timeTextField.text = record.timeStarted.formatTimestamp(withFormat: "HH:mm")
         self.durationTextField.text = Recording.toHumanReadable(elapsedTime: record.finalRecordingElapsed)
+        self.noteTextField.text = record.getNotes()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

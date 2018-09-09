@@ -155,10 +155,9 @@
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaV-Yr-sYH">
-                                                <rect key="frame" x="30" y="423" width="59" height="18"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No notes" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZaV-Yr-sYH">
+                                                <rect key="frame" x="30" y="434" width="205" height="20.5"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -166,6 +165,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="DM2-ES-uVe" firstAttribute="leading" secondItem="G7U-be-Ssl" secondAttribute="leading" constant="30" id="1as-Fz-QLa"/>
+                                            <constraint firstItem="ZaV-Yr-sYH" firstAttribute="top" secondItem="rGg-Pq-mJQ" secondAttribute="bottom" constant="5" id="20u-M7-2VG"/>
                                             <constraint firstItem="iqn-NT-pUQ" firstAttribute="leading" secondItem="YK2-aM-OuL" secondAttribute="leading" id="B0C-yt-ApH"/>
                                             <constraint firstItem="rGg-Pq-mJQ" firstAttribute="top" secondItem="1Wu-De-g9z" secondAttribute="bottom" constant="15" id="CmB-ET-kUU"/>
                                             <constraint firstItem="z0e-3W-Oym" firstAttribute="top" secondItem="wnM-MJ-C7e" secondAttribute="bottom" constant="5" id="ELg-d7-noH"/>
@@ -174,6 +174,8 @@
                                             <constraint firstItem="ifl-Cr-EJR" firstAttribute="centerX" secondItem="G7U-be-Ssl" secondAttribute="centerX" id="KTM-Q9-TWk"/>
                                             <constraint firstAttribute="trailing" secondItem="YK2-aM-OuL" secondAttribute="trailing" constant="50" id="MeT-GM-wDN"/>
                                             <constraint firstItem="YK2-aM-OuL" firstAttribute="top" secondItem="DM2-ES-uVe" secondAttribute="bottom" constant="5" id="ObS-iJ-VAk"/>
+                                            <constraint firstAttribute="trailing" secondItem="ZaV-Yr-sYH" secondAttribute="trailing" constant="50" id="ZBF-Bq-6fr"/>
+                                            <constraint firstItem="ZaV-Yr-sYH" firstAttribute="leading" secondItem="rGg-Pq-mJQ" secondAttribute="leading" id="ZlC-9e-EPw"/>
                                             <constraint firstItem="1Wu-De-g9z" firstAttribute="leading" secondItem="iqn-NT-pUQ" secondAttribute="leading" id="b5z-Od-6Jv"/>
                                             <constraint firstItem="1Wu-De-g9z" firstAttribute="top" secondItem="iqn-NT-pUQ" secondAttribute="bottom" constant="5" id="dNc-WS-nwq"/>
                                             <constraint firstItem="z0e-3W-Oym" firstAttribute="leading" secondItem="DM2-ES-uVe" secondAttribute="leading" id="eGA-gr-vkw"/>

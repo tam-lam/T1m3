@@ -40,6 +40,18 @@ public class Recording {
     public var accData: [(x: Double, y: Double)] = []
     public var weather: WeatherSituation = .cloudy
     private var accRecorder: AccelerometerManager? = AccelerometerManager()
+    public var notes: String = ""
+    
+    public func setNotes(notes: String){
+        self.notes = notes
+    }
+    public func getNotes()->String{
+        if self.notes == ""{
+            return "This record doesn't have any notes"
+        }
+        return self.notes
+    }
+    
     
     public var totalRecordingElapsed: Double {
         let intermissions = pauseTimes.reduce(0) { $0 + $1.resumeTime - $1.pauseTime }
