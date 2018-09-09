@@ -10,15 +10,20 @@ import UIKit
 
 class RecordDetailViewController: UIViewController {
 
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var time: UILabel!
+    
+    @IBOutlet weak var dateLbl: UILabel!
+    @IBOutlet weak var timeLbl: UILabel!
+    @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var notes: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         let record = RecordLog.shared.getSelectedRecord()
-        self.name.text = record.timeStarted.formatTimestamp(withFormat: "HH-mm")
-        self.time.text = Recording.toHumanReadable(elapsedTime: record.finalRecordingElapsed)
+        let dateString = record.timeStarted.formatTimestamp(withFormat: "MM-dd-yyyy")
+        let timeString =  record.timeStarted.formatTimestamp(withFormat: "HH:mm")
+        let durationString = Recording.toHumanReadable(elapsedTime: record.finalRecordingElapsed)
+        self.dateLbl.text = "\(dateString)"
+        self.timeLbl.text = "Time: \(timeString)"
+        self.durationLbl.text = "Duration: \(durationString)"
 
         
 
