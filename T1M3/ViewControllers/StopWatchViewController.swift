@@ -13,6 +13,7 @@ import Charts
 
 class StopWatchViewController: UIViewController {
     
+    @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var stopWatchTimeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var chartView: LineChartView!
@@ -24,13 +25,17 @@ class StopWatchViewController: UIViewController {
     var dataHistory = Array(repeating: 0.0, count: Constants.maximumPlottablePoints)
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        bgImageView.image = Settings.shared.getBgImage()
         
         measureAccInput()
         setupGraph()
         setupStopWatch()
         setupTableView()
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        bgImageView.image = Settings.shared.getBgImage()
+        refreshTable()
     }
     @IBOutlet weak var simpleRecordsTable: UITableView!
     @IBOutlet weak var btnGroupBG: UIView!

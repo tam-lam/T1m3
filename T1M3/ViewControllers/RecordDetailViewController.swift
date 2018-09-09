@@ -11,6 +11,7 @@ import UIKit
 class RecordDetailViewController: UIViewController {
 
     
+    @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var sideTableView: UITableView!
     @IBOutlet weak var dateLbl: UILabel!
     @IBOutlet weak var timeLbl: UILabel!
@@ -22,11 +23,16 @@ class RecordDetailViewController: UIViewController {
         self.updateDetail(record: record)
         self.sideTableView.delegate = self
         self.sideTableView.dataSource = self
+        setupBg()
     }
+
     override func viewDidAppear(_ animated: Bool) {
         self.sideTableView.reloadData()
+        setupBg()
     }
-    
+    func setupBg(){
+        self.bgImageView.image = Settings.shared.getBgImage()
+    }
     func updateDetail(record: Recording){
         let dateString = record.timeStarted.formatTimestamp(withFormat: "MM-dd-yyyy")
         let timeString =  record.timeStarted.formatTimestamp(withFormat: "HH:mm")

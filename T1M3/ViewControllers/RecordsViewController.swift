@@ -11,6 +11,7 @@ import UIKit
 
 class RecordsViewController: UIViewController {
     
+    @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBAction func editAction(_ sender: UIButton) {
         self.tableView.isEditing = !self.tableView.isEditing
@@ -30,11 +31,15 @@ class RecordsViewController: UIViewController {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.tintColor = UIColor.white
-
-        
+        setupBg()
     }
     override func viewDidAppear(_ animated: Bool) {
         self.tableView.reloadData()
+        setupBg()
+    }
+    
+    func setupBg(){
+        self.bgImageView.image = Settings.shared.getBgImage()
     }
 }
 

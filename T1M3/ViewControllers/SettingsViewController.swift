@@ -10,13 +10,17 @@ import UIKit
 
 class SettingsViewController: UIViewController {
 
+    
+    
+    @IBOutlet weak var bgImageView: UIImageView!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.tintColor = UIColor.white
-
+        bgImageView.image = Settings.shared.getBgImage()
         // Do any additional setup after loading the view.
     }
 

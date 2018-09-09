@@ -10,6 +10,7 @@ import UIKit
 
 class EditRecordViewController: UIViewController {
 
+    @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var dateTextField: UITextField!
     @IBOutlet weak var timeTextField: UITextField!
     @IBOutlet weak var durationTextField: UITextField!
@@ -20,8 +21,11 @@ class EditRecordViewController: UIViewController {
         loadRecord(record: record)
         setupKeyboardInputForFields()
         setupEndEditingOnTap()
+        setupBg()
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        setupBg()
+    }
     func saveRecord(alert: UIAlertAction){
         var dateString = dateTextField.text
         var timeString = timeTextField.text
@@ -37,7 +41,9 @@ class EditRecordViewController: UIViewController {
         //go back to Records table view
         self.performSegue(withIdentifier: "toTableView", sender: self)
     }
-    
+    func setupBg(){
+        self.bgImageView.image = Settings.shared.getBgImage()
+    }
     
     @IBAction func saveBtnAction(_ sender: Any) {
         let alertController = UIAlertController(title: "T1m3.", message: "Are you sure?", preferredStyle: .actionSheet)

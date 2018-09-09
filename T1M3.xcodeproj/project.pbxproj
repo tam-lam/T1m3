@@ -10,6 +10,8 @@
 		31EFB52DB5005C3753282599 /* Pods_T1M3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513DD7B4BEAB38BF7E9CFC49 /* Pods_T1M3.framework */; };
 		B8866AC32144C83D0053CB8D /* SideTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC22144C83D0053CB8D /* SideTableCell.swift */; };
 		B8866AC52144D9E50053CB8D /* EditRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC42144D9E50053CB8D /* EditRecordViewController.swift */; };
+		B8866AC72144F7E70053CB8D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC62144F7E70053CB8D /* Settings.swift */; };
+		B8866AC92144FB820053CB8D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC82144FB820053CB8D /* SettingsTableViewController.swift */; };
 		B8ADB8012142140700AD7DA7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */; };
 		B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */; };
 		B8ADB80521423D5900AD7DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8ADB80421423D5900AD7DA7 /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 		92AC16707FEAF1E95E7E7E89 /* Pods-T1M3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T1M3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-T1M3/Pods-T1M3.debug.xcconfig"; sourceTree = "<group>"; };
 		B8866AC22144C83D0053CB8D /* SideTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTableCell.swift; sourceTree = "<group>"; };
 		B8866AC42144D9E50053CB8D /* EditRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewController.swift; sourceTree = "<group>"; };
+		B8866AC62144F7E70053CB8D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		B8866AC82144FB820053CB8D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
 		B8ADB80421423D5900AD7DA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 				B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */,
 				B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */,
 				B8866AC42144D9E50053CB8D /* EditRecordViewController.swift */,
+				B8866AC82144FB820053CB8D /* SettingsTableViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 				C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */,
 				C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */,
 				C4E4F8322136B97C00506B6D /* RecordLog.swift */,
+				B8866AC62144F7E70053CB8D /* Settings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -268,9 +274,11 @@
 			files = (
 				C422341221326129001A27AD /* StopWatchViewController.swift in Sources */,
 				B8866AC52144D9E50053CB8D /* EditRecordViewController.swift in Sources */,
+				B8866AC72144F7E70053CB8D /* Settings.swift in Sources */,
 				C4469E7A213BB7580004DE1C /* RecordsViewController.swift in Sources */,
 				B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */,
 				C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */,
+				B8866AC92144FB820053CB8D /* SettingsTableViewController.swift in Sources */,
 				C422340021325E8C001A27AD /* ViewController.swift in Sources */,
 				C4E4F8312136B0C300506B6D /* WeatherInformationManager.swift in Sources */,
 				C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */,

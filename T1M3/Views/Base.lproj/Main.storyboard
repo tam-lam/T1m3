@@ -65,6 +65,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="T1m3." id="VAb-NF-wr5"/>
                     <connections>
+                        <outlet property="bgImageView" destination="aAN-Uv-keA" id="a6g-36-6l4"/>
                         <outlet property="tableView" destination="Mdw-hi-5hL" id="Z2f-bN-KLl"/>
                         <segue destination="HcN-Yc-N6j" kind="show" identifier="recordDetailSegue" id="HJw-oA-T5j"/>
                     </connections>
@@ -256,6 +257,7 @@
                         <viewLayoutGuide key="safeArea" id="9H6-8P-iOp"/>
                     </view>
                     <connections>
+                        <outlet property="bgImageView" destination="b5Y-ff-Rqd" id="fc2-Xh-dRa"/>
                         <outlet property="dateLbl" destination="ifl-Cr-EJR" id="Ip1-B1-fgW"/>
                         <outlet property="durationLbl" destination="z0e-3W-Oym" id="qrA-Ow-Zyi"/>
                         <outlet property="notes" destination="ZaV-Yr-sYH" id="nE7-mp-0zB"/>
@@ -431,6 +433,7 @@
                         <viewLayoutGuide key="safeArea" id="d07-Du-NeV"/>
                     </view>
                     <connections>
+                        <outlet property="bgImageView" destination="nIE-Ow-TO3" id="H81-Fq-odH"/>
                         <outlet property="dateTextField" destination="dLh-iw-eNg" id="8O4-js-bq9"/>
                         <outlet property="durationTextField" destination="2Ow-wX-BGp" id="pFv-Rh-Isc"/>
                         <outlet property="noteTextField" destination="dBS-qV-V2s" id="atc-5s-NxE"/>
@@ -608,6 +611,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Stopwatch" image="stopwatchIcon" selectedImage="stopwatchIcon" id="VsR-iw-eg7"/>
                     <connections>
+                        <outlet property="bgImageView" destination="8KN-xb-x5G" id="GQ8-uT-Bij"/>
                         <outlet property="btnGroupBG" destination="aVC-Am-c1B" id="f7a-zg-Evm"/>
                         <outlet property="chartView" destination="vjD-fi-neI" id="fPW-BO-lgf"/>
                         <outlet property="discardButton" destination="8vZ-lo-mcc" id="4V8-Gc-mDB"/>
@@ -662,15 +666,18 @@
                         <viewLayoutGuide key="safeArea" id="ILH-Pv-KQ5"/>
                     </view>
                     <navigationItem key="navigationItem" title="T1m3." id="TlJ-jT-LOi"/>
+                    <connections>
+                        <outlet property="bgImageView" destination="1Xd-2c-elr" id="bZE-hm-GaA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4SC-CM-r0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1928.8" y="1151.8740629685158"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Settings Table View Controller-->
         <scene sceneID="lWA-Tj-8da">
             <objects>
-                <tableViewController id="pFQ-N1-QR4" sceneMemberID="viewController">
+                <tableViewController id="pFQ-N1-QR4" customClass="SettingsTableViewController" customModule="T1M3" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="e03-0M-NY5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="493"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -697,6 +704,12 @@
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UUU-8j-oTc">
                                                     <rect key="frame" x="308" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="a:" destination="mok-Ge-RG9" eventType="valueChanged" id="ge1-JR-vI9"/>
+                                                        <action selector="ad:" destination="mok-Ge-RG9" eventType="valueChanged" id="O9M-am-dFI"/>
+                                                        <action selector="bgSwitchAction:" destination="mok-Ge-RG9" eventType="valueChanged" id="6oe-5Z-Mwg"/>
+                                                        <action selector="bgSwitchAction:" destination="pFQ-N1-QR4" eventType="valueChanged" id="V42-aa-TvE"/>
+                                                    </connections>
                                                 </switch>
                                             </subviews>
                                             <constraints>
@@ -783,6 +796,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zww-ho-Viu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mok-Ge-RG9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2691" y="1187"/>
         </scene>
