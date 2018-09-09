@@ -46,9 +46,6 @@ public class Recording {
         self.notes = notes
     }
     public func getNotes()->String{
-        if self.notes == ""{
-            return "This record doesn't have any notes"
-        }
         return self.notes
     }
     

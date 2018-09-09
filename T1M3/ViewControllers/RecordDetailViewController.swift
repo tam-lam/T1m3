@@ -34,7 +34,9 @@ class RecordDetailViewController: UIViewController {
         self.dateLbl.text = "\(dateString)"
         self.timeLbl.text = "Time: \(timeString)"
         self.durationLbl.text = "Duration: \(durationString)"
-        self.notes.text = record.getNotes()
+        var notesString = (record.getNotes() == "") ? "This record doesn't have any notes ": record.getNotes()
+        self.notes.text = notesString
+
     }
 }
 extension RecordDetailViewController: UITableViewDataSource,UITableViewDelegate{
