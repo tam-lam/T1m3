@@ -38,5 +38,7 @@ class RecordLog {
         let record = RecordLog.shared.records[selectedIndex]
         return record
     }
-        
+    public func deleteSelectedRecord(){
+        records.remove(at: selectedIndex)
+    }
 }

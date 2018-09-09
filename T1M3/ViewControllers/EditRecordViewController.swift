@@ -22,15 +22,40 @@ class EditRecordViewController: UIViewController {
         setupEndEditingOnTap()
     }
     
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func saveRecord(alert: UIAlertAction){
+        var dateString = dateTextField.text
+        var timeString = timeTextField.text
+        var durationString = durationTextField.text
+        var notesString = noteTextField.text
+        
+        //TODO//
+        //save//
+        //segue//
+    }
+    func deleteRecord(alert:UIAlertAction){
+        RecordLog.shared.deleteSelectedRecord()
+        //go back to Records table view
+        self.performSegue(withIdentifier: "toTableView", sender: self)
     }
     
     
-    //Setup date and time keyboard inputs for date and time field
-    //Setup duration input to use numberpad
+    @IBAction func saveBtnAction(_ sender: Any) {
+        let alertController = UIAlertController(title: "T1m3.", message: "Are you sure?", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Save", style:.default, handler: self.saveRecord))
+        alertController.addAction(UIAlertAction(title:"Cancel",style: .default, handler:nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    @IBAction func deleteBtnAction(_ sender: Any) {
+        let alertController = UIAlertController(title: "T1m3.", message: "Are you sure?", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Delete", style:.destructive, handler: self.deleteRecord))
+        alertController.addAction(UIAlertAction(title:"Cancel",style: .default, handler:nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+
+    
+    //Setup date and time picker keyboard inputs for date and time field
+    //Setup duration input to be number pad
     func setupKeyboardInputForFields(){
         var datePicker = UIDatePicker()
         var timePicker = UIDatePicker()
