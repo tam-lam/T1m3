@@ -33,10 +33,12 @@ class RecordsViewController: UIViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.white
         setupBg()
     }
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.tableView.reloadData()
         setupBg()
     }
+
     
     func setupBg(){
         self.bgImageView.image = Settings.shared.getBgImage()
