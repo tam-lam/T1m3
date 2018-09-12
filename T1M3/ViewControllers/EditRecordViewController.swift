@@ -39,7 +39,7 @@ class EditRecordViewController: UIViewController {
     func deleteRecord(alert:UIAlertAction){
         RecordLog.shared.deleteSelectedRecord()
         //go back to Records table view
-        self.performSegue(withIdentifier: "toTableView", sender: self)
+        self.navigationController?.popToRootViewController(animated: true)
     }
     func setupBg(){
         self.bgImageView.image = Settings.shared.getBgImage()
