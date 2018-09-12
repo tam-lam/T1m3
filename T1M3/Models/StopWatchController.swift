@@ -41,6 +41,7 @@ public class Recording {
     public var weather: WeatherSituation = .cloudy
     private var accRecorder: AccelerometerManager? = AccelerometerManager()
     public var notes: String = ""
+    public var editedDuration: Double?
     
     public func setNotes(notes: String){
         self.notes = notes
@@ -57,6 +58,9 @@ public class Recording {
     }
     
     public var finalRecordingElapsed: Double {
+        if let editedDuration = editedDuration {
+            return editedDuration
+        }
         let intermissions = pauseTimes.reduce(0) { $0 + $1.resumeTime - $1.pauseTime }
         let total = ( (pauseTimes.last?.pauseTime ?? 0.0) - timeStarted) - intermissions
         return total

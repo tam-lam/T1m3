@@ -41,4 +41,8 @@ class RecordLog {
     public func deleteSelectedRecord(){
         records.remove(at: selectedIndex)
     }
+    
+    public func replaceRecord(record: Recording, index: Int) {
+        records[index] = record
+    }
 }

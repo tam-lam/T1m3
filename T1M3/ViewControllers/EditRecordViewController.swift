@@ -27,10 +27,23 @@ class EditRecordViewController: UIViewController {
         setupBg()
     }
     func saveRecord(alert: UIAlertAction){
-        var dateString = dateTextField.text
-        var timeString = timeTextField.text
-        var durationString = durationTextField.text
-        var notesString = noteTextField.text
+        let dateString = dateTextField.text
+        let timeString = timeTextField.text
+        
+        let notesString = noteTextField.text
+        
+        
+        let durationString = durationTextField.text
+        let durationParts = durationString?.components(separatedBy: ":")
+        let secondsDuration = ((durationParts?.first ?? "0") as NSString).doubleValue
+        let miliSecondDuration = (((durationParts?.last ?? "0") as NSString).doubleValue ) / 100
+        
+        
+        let record = RecordLog.shared.getSelectedRecord()
+        record.editedDuration = secondsDuration + miliSecondDuration
+        
+        RecordLog.shared.replaceRecord(record: record, index: RecordLog.shared.getSelectedIndex())
+        self.navigationController?.popViewController(animated: true)
         
         //TODO//
         //save//
