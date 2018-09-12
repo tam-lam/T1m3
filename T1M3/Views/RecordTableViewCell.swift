@@ -43,6 +43,7 @@ class RecordTableViewCell: UITableViewCell {
         graph.rightAxis.enabled = false
         graph.legend.enabled = false
         graph.chartDescription?.enabled = false
+        graph.isUserInteractionEnabled = false
     }
     
     func fixData(data: [(x: Double, y: Double)]) -> [(x: Double, y: Double)] {
