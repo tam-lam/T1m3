@@ -43,7 +43,7 @@ class RecordDetailViewController: UIViewController {
         let dateString = record.timeStarted.formatTimestamp(withFormat: "MM-dd-yyyy")
         let timeString =  record.timeStarted.formatTimestamp(withFormat: "HH:mm")
         let durationString = Recording.toHumanReadable(elapsedTime: record.finalRecordingElapsed)
-        self.dateLbl.text = "\(dateString)"
+        self.dateLbl.text = "Date: \(dateString)"
         self.timeLbl.text = "Time: \(timeString)"
         self.durationLbl.text = "Duration: \(durationString)"
         let notesString = (record.getNotes() == "") ? "This record doesn't have any notes ": record.getNotes()
