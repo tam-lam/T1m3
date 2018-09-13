@@ -27,12 +27,10 @@ class EditRecordViewController: UIViewController {
         setupBg()
     }
     func saveRecord(alert: UIAlertAction){
-        let dateString = dateTextField.text
-        let timeString = timeTextField.text
+        
+
         
         let notesString = noteTextField.text
-        
-        
         let durationString = durationTextField.text
         let durationParts = durationString?.components(separatedBy: ":")
         let secondsDuration = ((durationParts?.first ?? "0") as NSString).doubleValue
@@ -41,13 +39,18 @@ class EditRecordViewController: UIViewController {
         
         let record = RecordLog.shared.getSelectedRecord()
         record.editedDuration = secondsDuration + miliSecondDuration
+        record.notes = notesString ?? ""
+        if let dateString = dateTextField.text, let timeString = timeTextField.text{
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM-dd-yyyy-HH:mm"
+            dateFormatter.locale = Locale.current
+            if let date = dateFormatter.date(from: dateString + "-" +  timeString) {
+                record.timeStarted = date.timeIntervalSince1970
+            }
+        }
         
         RecordLog.shared.replaceRecord(record: record, index: RecordLog.shared.getSelectedIndex())
         self.navigationController?.popViewController(animated: true)
-        
-        //TODO//
-        //save//
-        //segue//
     }
     func deleteRecord(alert:UIAlertAction){
         RecordLog.shared.deleteSelectedRecord()
@@ -85,7 +88,6 @@ class EditRecordViewController: UIViewController {
         durationTextField.keyboardType = UIKeyboardType.numberPad
         datePicker.addTarget(self, action: #selector(EditRecordViewController.dateChanged(datePicker:)), for: .valueChanged)
         timePicker.addTarget(self, action: #selector(EditRecordViewController.timeChanged(timePicker:)), for: .valueChanged)
-        
     }
     
     //close keyboard on tap

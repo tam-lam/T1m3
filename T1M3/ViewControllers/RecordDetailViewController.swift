@@ -19,14 +19,20 @@ class RecordDetailViewController: UIViewController {
     @IBOutlet weak var notes: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        let record = RecordLog.shared.getSelectedRecord()
-        self.updateDetail(record: record)
+        
+        
         self.sideTableView.delegate = self
         self.sideTableView.dataSource = self
         setupBg()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let record = RecordLog.shared.getSelectedRecord()
+        self.updateDetail(record: record)
+    }
 
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         self.sideTableView.reloadData()
         setupBg()
     }
@@ -40,7 +46,7 @@ class RecordDetailViewController: UIViewController {
         self.dateLbl.text = "\(dateString)"
         self.timeLbl.text = "Time: \(timeString)"
         self.durationLbl.text = "Duration: \(durationString)"
-        var notesString = (record.getNotes() == "") ? "This record doesn't have any notes ": record.getNotes()
+        let notesString = (record.getNotes() == "") ? "This record doesn't have any notes ": record.getNotes()
         self.notes.text = notesString
 
     }
