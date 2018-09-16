@@ -28,6 +28,7 @@
 		C4C5C3DA214DF1AC00CF4504 /* RecordLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C5C3D9214DF1AC00CF4504 /* RecordLogTests.swift */; };
 		C4C5C3DC214DFA6C00CF4504 /* SettingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C5C3DB214DFA6C00CF4504 /* SettingsTest.swift */; };
 		C4C5C3DE214DFBF900CF4504 /* RecordDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C5C3DD214DFBF900CF4504 /* RecordDetailTests.swift */; };
+		C4C5C3E0214DFF5400CF4504 /* RecordedTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C5C3DF214DFF5400CF4504 /* RecordedTest.swift */; };
 		C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */; };
 		C4E4F8312136B0C300506B6D /* WeatherInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */; };
 		C4E4F8332136B97C00506B6D /* RecordLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4F8322136B97C00506B6D /* RecordLog.swift */; };
@@ -70,6 +71,7 @@
 		C4C5C3D9214DF1AC00CF4504 /* RecordLogTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordLogTests.swift; sourceTree = "<group>"; };
 		C4C5C3DB214DFA6C00CF4504 /* SettingsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTest.swift; sourceTree = "<group>"; };
 		C4C5C3DD214DFBF900CF4504 /* RecordDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailTests.swift; sourceTree = "<group>"; };
+		C4C5C3DF214DFF5400CF4504 /* RecordedTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordedTest.swift; sourceTree = "<group>"; };
 		C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchController.swift; sourceTree = "<group>"; };
 		C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInformationManager.swift; sourceTree = "<group>"; };
 		C4E4F8322136B97C00506B6D /* RecordLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordLog.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				C4C5C3D9214DF1AC00CF4504 /* RecordLogTests.swift */,
 				C4C5C3DB214DFA6C00CF4504 /* SettingsTest.swift */,
 				C4C5C3DD214DFBF900CF4504 /* RecordDetailTests.swift */,
+				C4C5C3DF214DFF5400CF4504 /* RecordedTest.swift */,
 			);
 			path = T1M3UITests;
 			sourceTree = "<group>";
@@ -372,6 +375,7 @@
 				C492B53B214D34B4006E7C61 /* T1M3UITests.swift in Sources */,
 				C4C5C3DC214DFA6C00CF4504 /* SettingsTest.swift in Sources */,
 				C492B543214D386F006E7C61 /* StopWatchTest.swift in Sources */,
+				C4C5C3E0214DFF5400CF4504 /* RecordedTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
