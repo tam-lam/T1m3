@@ -28,7 +28,7 @@ public class Recording {
     public static var dummyRecording: Recording = {
         let record = Recording()
         record.timeStarted = Date().timeIntervalSince1970
-        record.timeFinished = record.timeStarted + 50
+        record.editedDuration = 5.0
         record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
         record.weather = .rainy
         return record

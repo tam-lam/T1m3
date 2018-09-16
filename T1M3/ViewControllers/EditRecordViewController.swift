@@ -79,8 +79,8 @@ class EditRecordViewController: UIViewController {
     //Setup date and time picker keyboard inputs for date and time field
     //Setup duration input to be number pad
     func setupKeyboardInputForFields(){
-        var datePicker = UIDatePicker()
-        var timePicker = UIDatePicker()
+        let datePicker = UIDatePicker()
+        let timePicker = UIDatePicker()
         timePicker.datePickerMode = .time
         datePicker.datePickerMode = .date
         dateTextField.inputView = datePicker

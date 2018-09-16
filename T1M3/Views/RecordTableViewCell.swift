@@ -25,7 +25,7 @@ class RecordTableViewCell: UITableViewCell {
     
     func setup(record: Recording) {
         self.name.text = record.timeStarted.formatTimestamp(withFormat: "HH-mm")
-        self.location.text = "later"
+        self.location.text = ""
         self.time.text = Recording.toHumanReadable(elapsedTime: record.finalRecordingElapsed)
         self.weatherImage.image = record.weather.image
         setupGraph()
@@ -57,7 +57,7 @@ class RecordTableViewCell: UITableViewCell {
                 dataDictionary[dataPoint.x] = [dataPoint.y]
             }
         }
-        return dataDictionary.flatMap{ (x: $0.key, y: $0.value.first) as! ChartPoint  }.sorted(by: { (one, two) -> Bool in
+        return dataDictionary.flatMap{ (x: $0.key, y: $0.value.first) as? ChartPoint  }.sorted(by: { (one, two) -> Bool in
             return one.x < two.x
         })    // Change to average if time
     }

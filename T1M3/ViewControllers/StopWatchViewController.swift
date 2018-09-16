@@ -194,7 +194,6 @@ extension StopWatchViewController: AccDataReceiver {
     
     func updateData() {
         let count = dataHistory.count
-        var range: UInt32 = 20
         let yVals1 = (0..<count).map { (i) -> ChartDataEntry in
             return ChartDataEntry(x: Double(i), y: dataHistory[i])
         }

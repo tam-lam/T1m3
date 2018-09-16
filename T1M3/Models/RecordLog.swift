@@ -15,7 +15,11 @@ class RecordLog {
     private init(){
         self.selectedIndex = 0
     }
+    
     public private(set) var records: [Recording] = []
+    
+    // UNCOMMENT FOLLOWING LINE FOR SAMPLE DATA
+//    public private(set) var records: [Recording] = [Recording.dummyRecording]
     
     public func addRecord(record: Recording) {
         records.append(record)
