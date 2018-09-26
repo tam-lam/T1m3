@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MapKit
 
 class RecordDetailViewController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var sideTableView: UITableView!
@@ -20,11 +22,13 @@ class RecordDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.mapView.delegate = self
         self.sideTableView.delegate = self
         self.sideTableView.dataSource = self
+        self.mapView.delegate = self
         setupBg()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let record = RecordLog.shared.getSelectedRecord()
@@ -48,6 +52,7 @@ class RecordDetailViewController: UIViewController {
         self.durationLbl.text = "Duration: \(durationString)"
         let notesString = (record.getNotes() == "") ? "This record doesn't have any notes ": record.getNotes()
         self.notes.text = notesString
+        setupMap(recording: record)
 
     }
 }
@@ -72,4 +77,51 @@ extension RecordDetailViewController: UITableViewDataSource,UITableViewDelegate{
         self.updateDetail(record: record)
 
     }
+}
+
+extension RecordDetailViewController: MKMapViewDelegate {
+    func setupMap(recording: Recording) {
+        
+        guard let startCoordinates = recording.startLocation?.coordinate,
+            let endCoordinates = recording.endLocation?.coordinate else { return }
+        let centerLat = (startCoordinates.latitude + endCoordinates.latitude) / 2
+        let centerLon = (startCoordinates.longitude + endCoordinates.longitude) / 2
+        
+        let center = CLLocationCoordinate2D(latitude: centerLat, longitude: centerLon)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan.init(latitudeDelta: 0.2, longitudeDelta: 0.2))
+        mapView.setRegion(region, animated: false)
+        
+        
+        let startAnnotiation = MKPointAnnotation.init()
+
+        startAnnotiation.coordinate = startCoordinates
+        startAnnotiation.title = "Start"
+        
+        mapView.addAnnotation(startAnnotiation)
+        
+        let endAnnotiation = MKPointAnnotation.init()
+        endAnnotiation.coordinate = endCoordinates
+        endAnnotiation.title = "End"
+
+        mapView.addAnnotation(endAnnotiation)
+        mapView.showAnnotations([startAnnotiation,endAnnotiation], animated: false)
+    }
+
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard !(annotation is MKUserLocation) else { return nil }
+        
+        if let pinView = mapView.dequeueReusableAnnotationView(withIdentifier: "location") as? MKPinAnnotationView {
+            pinView.annotation = annotation
+            pinView.pinTintColor = annotation.title == "Start" ? .red : .blue
+            return pinView
+        } else {
+            let pinAnnotation = MKPinAnnotationView.init(annotation: annotation, reuseIdentifier: "location")
+            pinAnnotation.pinTintColor = annotation.title == "Start" ? .red : .blue
+            
+        }
+        return nil
+
+    }
+    
 }

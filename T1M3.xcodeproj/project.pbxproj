@@ -23,6 +23,8 @@
 		C4469E7A213BB7580004DE1C /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4469E79213BB7580004DE1C /* RecordsViewController.swift */; };
 		C4469E7D213BB8D70004DE1C /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4469E7B213BB8D70004DE1C /* RecordTableViewCell.swift */; };
 		C4469E7E213BB8D70004DE1C /* RecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4469E7C213BB8D70004DE1C /* RecordTableViewCell.xib */; };
+		C448E320213FB72500501BF4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E31F213FB72500501BF4 /* LocationManager.swift */; };
+		C457CBB821520B5400DBD2BE /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457CBB721520B5400DBD2BE /* Recording.swift */; };
 		C492B53B214D34B4006E7C61 /* T1M3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492B53A214D34B4006E7C61 /* T1M3UITests.swift */; };
 		C492B543214D386F006E7C61 /* StopWatchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492B542214D386F006E7C61 /* StopWatchTest.swift */; };
 		C4C5C3DA214DF1AC00CF4504 /* RecordLogTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C5C3D9214DF1AC00CF4504 /* RecordLogTests.swift */; };
@@ -64,6 +66,8 @@
 		C4469E79213BB7580004DE1C /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		C4469E7B213BB8D70004DE1C /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		C4469E7C213BB8D70004DE1C /* RecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordTableViewCell.xib; sourceTree = "<group>"; };
+		C448E31F213FB72500501BF4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		C457CBB721520B5400DBD2BE /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		C492B538214D34B4006E7C61 /* T1M3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = T1M3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C492B53A214D34B4006E7C61 /* T1M3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T1M3UITests.swift; sourceTree = "<group>"; };
 		C492B53C214D34B4006E7C61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */,
 				C4E4F8322136B97C00506B6D /* RecordLog.swift */,
 				B8866AC62144F7E70053CB8D /* Settings.swift */,
+				C448E31F213FB72500501BF4 /* LocationManager.swift */,
+				C457CBB721520B5400DBD2BE /* Recording.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -356,10 +362,12 @@
 				B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */,
 				C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */,
 				B8866AC92144FB820053CB8D /* SettingsTableViewController.swift in Sources */,
+				C457CBB821520B5400DBD2BE /* Recording.swift in Sources */,
 				C422340021325E8C001A27AD /* ViewController.swift in Sources */,
 				C4E4F8312136B0C300506B6D /* WeatherInformationManager.swift in Sources */,
 				C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */,
 				C4469E7D213BB8D70004DE1C /* RecordTableViewCell.swift in Sources */,
+				C448E320213FB72500501BF4 /* LocationManager.swift in Sources */,
 				C4E4F8332136B97C00506B6D /* RecordLog.swift in Sources */,
 				B8866AC32144C83D0053CB8D /* SideTableCell.swift in Sources */,
 				B8ADB8012142140700AD7DA7 /* SettingsViewController.swift in Sources */,
