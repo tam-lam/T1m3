@@ -19,7 +19,6 @@ class StopWatchViewController: UIViewController {
     @IBOutlet weak var chartView: LineChartView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var discardButton: UIButton!
-    @IBOutlet weak var testLbl: UILabel!
     var recordLogs:[CoreDataRecord] = []
     var dataHistory = Array(repeating: 0.0, count: Constants.maximumPlottablePoints)
     override func viewDidLoad() {
@@ -35,10 +34,6 @@ class StopWatchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         recordLogs = fetchRecordsFromCoreData()
-        if(!recordLogs.isEmpty && recordLogs.count>2){
-            debugPrint("RecordLogs is not empty")
-            testLbl.text = recordLogs[2].notes
-        }
         loadRecordToSingleton()
     }
     override func viewDidAppear(_ animated: Bool) {
