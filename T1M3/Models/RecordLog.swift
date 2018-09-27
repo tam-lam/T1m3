@@ -34,6 +34,9 @@ class RecordLog {
             records.remove(at: index)
         }
     }
+    public func removeAllRecords(){
+        records.removeAll()
+    }
     public func getSelectedIndex() ->Int {
         return selectedIndex
     }

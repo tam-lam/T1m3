@@ -34,11 +34,12 @@ class StopWatchViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        recordLogs = self.fetch()
-        if(!recordLogs.isEmpty && recordLogs.count>0){
+        recordLogs = fetchRecordsFromCoreData()
+        if(!recordLogs.isEmpty && recordLogs.count>2){
             debugPrint("RecordLogs is not empty")
-            testLbl.text = recordLogs[0].notes
+            testLbl.text = recordLogs[2].notes
         }
+        loadRecordToSingleton()
     }
     override func viewDidAppear(_ animated: Bool) {
         bgImageView.image = Settings.shared.getBgImage()
