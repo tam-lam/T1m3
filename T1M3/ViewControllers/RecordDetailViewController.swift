@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 class RecordDetailViewController: UIViewController {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     
     @IBOutlet weak var bgImageView: UIImageView!

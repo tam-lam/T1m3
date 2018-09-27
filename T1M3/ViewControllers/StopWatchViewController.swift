@@ -9,10 +9,11 @@
 import UIKit
 import CoreMotion
 import Charts
-
+import CoreData
+let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class StopWatchViewController: UIViewController {
-    
+
     @IBOutlet weak var bgImageView: UIImageView!
     @IBOutlet weak var stopWatchTimeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
@@ -111,7 +112,6 @@ extension StopWatchViewController: StopWatchListener {
         }
     }
 }
-
 
 public class CubicLineSampleFillFormatter: IFillFormatter {
     public func getFillLinePosition(dataSet: ILineChartDataSet, dataProvider: LineChartDataProvider) -> CGFloat {

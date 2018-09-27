@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class EditRecordViewController: UIViewController {
 
@@ -48,7 +49,7 @@ class EditRecordViewController: UIViewController {
                 record.timeStarted = date.timeIntervalSince1970
             }
         }
-        
+        saveToCoreData(record: record)
         RecordLog.shared.replaceRecord(record: record, index: RecordLog.shared.getSelectedIndex())
         self.navigationController?.popViewController(animated: true)
     }
@@ -121,5 +122,7 @@ class EditRecordViewController: UIViewController {
         self.durationTextField.text = Recording.toHumanReadable(elapsedTime: record.finalRecordingElapsed)
         self.noteTextField.text = record.getNotes()
     }
+    
 
 }
+

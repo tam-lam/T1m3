@@ -10,7 +10,6 @@ import Foundation
 import CoreLocation
 
 public class Recording: NSObject {
-    
     public static var dummyRecording: Recording = {
         let record = Recording()
         record.timeStarted = Date().timeIntervalSince1970

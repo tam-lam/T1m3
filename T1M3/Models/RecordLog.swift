@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import CoreData
 
 class RecordLog {
+    var coreDataRecordLog: [NSManagedObject] = []
     var selectedIndex : Int
     public  static let shared = RecordLog()
     
