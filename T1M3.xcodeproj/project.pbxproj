@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		31EFB52DB5005C3753282599 /* Pods_T1M3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513DD7B4BEAB38BF7E9CFC49 /* Pods_T1M3.framework */; };
 		B86F2E98215D08BE00C33977 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B86F2E96215D08BE00C33977 /* Model.xcdatamodeld */; };
-		B86F2E9A215D15CE00C33977 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86F2E99215D15CE00C33977 /* UIViewControllerExt.swift */; };
+		B86F2E9A215D15CE00C33977 /* CoreDataFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86F2E99215D15CE00C33977 /* CoreDataFunctions.swift */; };
 		B8866AC32144C83D0053CB8D /* SideTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC22144C83D0053CB8D /* SideTableCell.swift */; };
 		B8866AC52144D9E50053CB8D /* EditRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC42144D9E50053CB8D /* EditRecordViewController.swift */; };
 		B8866AC72144F7E70053CB8D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC62144F7E70053CB8D /* Settings.swift */; };
@@ -52,7 +52,7 @@
 		513DD7B4BEAB38BF7E9CFC49 /* Pods_T1M3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T1M3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AC16707FEAF1E95E7E7E89 /* Pods-T1M3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T1M3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-T1M3/Pods-T1M3.debug.xcconfig"; sourceTree = "<group>"; };
 		B86F2E97215D08BE00C33977 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
-		B86F2E99215D15CE00C33977 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		B86F2E99215D15CE00C33977 /* CoreDataFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFunctions.swift; sourceTree = "<group>"; };
 		B8866AC22144C83D0053CB8D /* SideTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTableCell.swift; sourceTree = "<group>"; };
 		B8866AC42144D9E50053CB8D /* EditRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewController.swift; sourceTree = "<group>"; };
 		B8866AC62144F7E70053CB8D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		B86F2E9B215D172E00C33977 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B86F2E99215D15CE00C33977 /* UIViewControllerExt.swift */,
+				B86F2E99215D15CE00C33977 /* CoreDataFunctions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -371,7 +371,7 @@
 			files = (
 				C422341221326129001A27AD /* StopWatchViewController.swift in Sources */,
 				B8866AC52144D9E50053CB8D /* EditRecordViewController.swift in Sources */,
-				B86F2E9A215D15CE00C33977 /* UIViewControllerExt.swift in Sources */,
+				B86F2E9A215D15CE00C33977 /* CoreDataFunctions.swift in Sources */,
 				B8866AC72144F7E70053CB8D /* Settings.swift in Sources */,
 				C4469E7A213BB7580004DE1C /* RecordsViewController.swift in Sources */,
 				B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */,

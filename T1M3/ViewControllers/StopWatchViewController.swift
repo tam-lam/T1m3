@@ -10,7 +10,6 @@ import UIKit
 import CoreMotion
 import Charts
 import CoreData
-let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 class StopWatchViewController: UIViewController {
 
@@ -18,11 +17,10 @@ class StopWatchViewController: UIViewController {
     @IBOutlet weak var stopWatchTimeLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var chartView: LineChartView!
-    
     @IBOutlet weak var saveButton: UIButton!
-    
     @IBOutlet weak var discardButton: UIButton!
-    
+    @IBOutlet weak var testLbl: UILabel!
+    var recordLogs:[CoreDataRecord] = []
     var dataHistory = Array(repeating: 0.0, count: Constants.maximumPlottablePoints)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +31,14 @@ class StopWatchViewController: UIViewController {
         setupStopWatch()
         setupTableView()
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        recordLogs = self.fetch()
+        if(!recordLogs.isEmpty && recordLogs.count>0){
+            debugPrint("RecordLogs is not empty")
+            testLbl.text = recordLogs[0].notes
+        }
     }
     override func viewDidAppear(_ animated: Bool) {
         bgImageView.image = Settings.shared.getBgImage()
