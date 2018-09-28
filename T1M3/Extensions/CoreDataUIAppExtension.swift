@@ -32,7 +32,12 @@ extension CoreDataFuncs{
         let record = Recording()
         record.notes = cdRecord.notes!
         record.timeStarted = Date().timeIntervalSince1970
-        record.editedDuration = 5.0
+        if (cdRecord.editedDuration != nil){
+            record.editedDuration = cdRecord.editedDuration
+        } else {
+            record.editedDuration = 5.0
+
+        }
         record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
         record.weather = .rainy
         return record

@@ -8,15 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		31EFB52DB5005C3753282599 /* Pods_T1M3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 513DD7B4BEAB38BF7E9CFC49 /* Pods_T1M3.framework */; };
-		B86F2E98215D08BE00C33977 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B86F2E96215D08BE00C33977 /* Model.xcdatamodeld */; };
 		B8866AC32144C83D0053CB8D /* SideTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC22144C83D0053CB8D /* SideTableCell.swift */; };
 		B8866AC52144D9E50053CB8D /* EditRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC42144D9E50053CB8D /* EditRecordViewController.swift */; };
 		B8866AC72144F7E70053CB8D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC62144F7E70053CB8D /* Settings.swift */; };
 		B8866AC92144FB820053CB8D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC82144FB820053CB8D /* SettingsTableViewController.swift */; };
 		B8992EEA215DD4C1009A981A /* CoreDataUIAppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8992EE9215DD4C1009A981A /* CoreDataUIAppExtension.swift */; };
+		B8992EED215DE9BF009A981A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8992EEB215DE9BF009A981A /* Model.xcdatamodeld */; };
 		B8ADB8012142140700AD7DA7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */; };
 		B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */; };
 		B8ADB80521423D5900AD7DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8ADB80421423D5900AD7DA7 /* Assets.xcassets */; };
+		B8BDF642215DEC1900577541 /* CoreDataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF641215DEC1900577541 /* CoreDataRecord.swift */; };
 		C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42233FD21325E8C001A27AD /* AppDelegate.swift */; };
 		C422340021325E8C001A27AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42233FF21325E8C001A27AD /* ViewController.swift */; };
 		C422340321325E8C001A27AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C422340121325E8C001A27AD /* Main.storyboard */; };
@@ -51,15 +52,16 @@
 /* Begin PBXFileReference section */
 		513DD7B4BEAB38BF7E9CFC49 /* Pods_T1M3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_T1M3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92AC16707FEAF1E95E7E7E89 /* Pods-T1M3.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T1M3.debug.xcconfig"; path = "Pods/Target Support Files/Pods-T1M3/Pods-T1M3.debug.xcconfig"; sourceTree = "<group>"; };
-		B86F2E97215D08BE00C33977 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B8866AC22144C83D0053CB8D /* SideTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTableCell.swift; sourceTree = "<group>"; };
 		B8866AC42144D9E50053CB8D /* EditRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewController.swift; sourceTree = "<group>"; };
 		B8866AC62144F7E70053CB8D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B8866AC82144FB820053CB8D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		B8992EE9215DD4C1009A981A /* CoreDataUIAppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUIAppExtension.swift; sourceTree = "<group>"; };
+		B8992EEC215DE9BF009A981A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
 		B8ADB80421423D5900AD7DA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B8BDF641215DEC1900577541 /* CoreDataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRecord.swift; sourceTree = "<group>"; };
 		C42233FA21325E8C001A27AD /* T1M3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T1M3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42233FD21325E8C001A27AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C42233FF21325E8C001A27AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,8 +163,8 @@
 		C42233FC21325E8C001A27AD /* T1M3 */ = {
 			isa = PBXGroup;
 			children = (
+				B8992EEB215DE9BF009A981A /* Model.xcdatamodeld */,
 				B86F2E9B215D172E00C33977 /* Extensions */,
-				B86F2E96215D08BE00C33977 /* Model.xcdatamodeld */,
 				B8036DD62140EF7D00062B71 /* Resources */,
 				C4469E78213BB5DD0004DE1C /* Views */,
 				C4469E77213BB5CC0004DE1C /* Models */,
@@ -196,6 +198,7 @@
 				B8866AC62144F7E70053CB8D /* Settings.swift */,
 				C448E31F213FB72500501BF4 /* LocationManager.swift */,
 				C457CBB721520B5400DBD2BE /* Recording.swift */,
+				B8BDF641215DEC1900577541 /* CoreDataRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -374,10 +377,11 @@
 				B8866AC72144F7E70053CB8D /* Settings.swift in Sources */,
 				C4469E7A213BB7580004DE1C /* RecordsViewController.swift in Sources */,
 				B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */,
+				B8992EED215DE9BF009A981A /* Model.xcdatamodeld in Sources */,
 				C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */,
+				B8BDF642215DEC1900577541 /* CoreDataRecord.swift in Sources */,
 				B8866AC92144FB820053CB8D /* SettingsTableViewController.swift in Sources */,
 				C457CBB821520B5400DBD2BE /* Recording.swift in Sources */,
-				B86F2E98215D08BE00C33977 /* Model.xcdatamodeld in Sources */,
 				C422340021325E8C001A27AD /* ViewController.swift in Sources */,
 				C4E4F8312136B0C300506B6D /* WeatherInformationManager.swift in Sources */,
 				C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */,
@@ -652,12 +656,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B86F2E96215D08BE00C33977 /* Model.xcdatamodeld */ = {
+		B8992EEB215DE9BF009A981A /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B86F2E97215D08BE00C33977 /* Model.xcdatamodel */,
+				B8992EEC215DE9BF009A981A /* Model.xcdatamodel */,
 			);
-			currentVersion = B86F2E97215D08BE00C33977 /* Model.xcdatamodel */;
+			currentVersion = B8992EEC215DE9BF009A981A /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
