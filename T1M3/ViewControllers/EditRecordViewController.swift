@@ -49,7 +49,6 @@ class EditRecordViewController: UIViewController {
                 record.timeStarted = date.timeIntervalSince1970
             }
         }
-        saveToCoreData(record: record)
         RecordLog.shared.replaceRecord(record: record, index: RecordLog.shared.getSelectedIndex())
         self.navigationController?.popViewController(animated: true)
     }

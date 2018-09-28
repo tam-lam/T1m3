@@ -19,7 +19,7 @@ class StopWatchViewController: UIViewController {
     @IBOutlet weak var chartView: LineChartView!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var discardButton: UIButton!
-    var recordLogs:[CoreDataRecord] = []
+    var cdRecordLogs:[CoreDataRecord] = []
     var dataHistory = Array(repeating: 0.0, count: Constants.maximumPlottablePoints)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,8 +33,6 @@ class StopWatchViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        recordLogs = fetchRecordsFromCoreData()
-        loadRecordToSingleton()
     }
     override func viewDidAppear(_ animated: Bool) {
         bgImageView.image = Settings.shared.getBgImage()
