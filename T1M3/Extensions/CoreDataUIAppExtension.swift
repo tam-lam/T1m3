@@ -23,21 +23,20 @@ extension CoreDataFuncs{
     func convertRecordToCDRecord(record: Recording, managedContext: NSManagedObjectContext) -> CoreDataRecord{
         let cdRecord = CoreDataRecord(context: managedContext)
         cdRecord.notes = record.notes
-        if(record.editedDuration != nil){
-            cdRecord.editedDuration =  record.editedDuration!
+        if(record.finalRecordingElapsed != 0){
+            cdRecord.editedDuration = record.finalRecordingElapsed
+        } else{
+            cdRecord.editedDuration = record.editedDuration!
         }
         return cdRecord
     }
     func convertCDRecordToRecord(cdRecord: CoreDataRecord) -> Recording{
         let record = Recording()
         record.notes = cdRecord.notes!
+        record.editedDuration = cdRecord.editedDuration
+        
+        //placeholer data
         record.timeStarted = Date().timeIntervalSince1970
-        if (cdRecord.editedDuration != nil){
-            record.editedDuration = cdRecord.editedDuration
-        } else {
-            record.editedDuration = 5.0
-
-        }
         record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
         record.weather = .rainy
         return record
