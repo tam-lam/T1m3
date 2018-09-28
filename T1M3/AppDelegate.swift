@@ -11,7 +11,7 @@ import CoreData
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CoreDataFuncs {
 
     var window: UIWindow?
     var cdRecordLogs:[CoreDataRecord] = []
