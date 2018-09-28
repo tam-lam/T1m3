@@ -38,6 +38,7 @@ public class Recording: NSObject {
     }
     
     public var startLocation: CLLocation?
+    public var startLocationName: String?
     public var endLocation: CLLocation?
     
     public var totalRecordingElapsed: Double {
@@ -68,6 +69,10 @@ public class Recording: NSObject {
         
         WeatherInformationManager.getWeatherInformation(forCoordinates: LocationManager.shared.lastLocation.coordinate) { [weak self] (weather) in
             self?.weather = weather
+            self?.didUpdate?()
+        }
+        LocationManager.shared.geocode(LocationManager.shared.lastLocation.coordinate) { [weak self] (cityName) -> (Void) in
+            self?.startLocationName = cityName
             self?.didUpdate?()
         }
     }

@@ -51,4 +51,23 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
         guard let location = locations.last else  { return }
         self.lastLocation = location
     }
+    
+    func geocode(_ coordinates: CLLocationCoordinate2D, completion: @escaping (String) -> (Void)) {
+        guard let url = URL(string: "https://geocode.xyz/\(coordinates.latitude),\(coordinates.longitude)?json=1") else {
+            completion("")
+            return
+        }
+    
+        let task = URLSession.shared.dataTask(with: url) { (data, _, error) in
+            guard let data = data, error == nil else {
+                completion("")
+                return
+            }
+            // Data to Swift Dictionary
+            if let locationInfo = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let cityName = locationInfo?["city"] as? String {
+                completion(cityName)
+            }
+        }
+        task.resume()
+    }
 }
