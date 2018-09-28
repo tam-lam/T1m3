@@ -24,10 +24,11 @@ public class Recording: NSObject {
     public var timeFinished: Double?
     public var pauseTimes: [(pauseTime: Double, resumeTime: Double)] = []
     public var accData: [(x: Double, y: Double)] = []
-    public var weather: WeatherSituation = .cloudy
+    public var weather: WeatherSituation = .none
     private var accRecorder: AccelerometerManager? = AccelerometerManager()
     public var notes: String = ""
     public var editedDuration: Double?
+    public var didUpdate: (() -> (Void))?
     
     public func setNotes(notes: String){
         self.notes = notes
@@ -63,10 +64,12 @@ public class Recording: NSObject {
         timeStarted = Date().timeIntervalSince1970
         AccelerometerManager.shared.addReceiver(receiver: self)
         
-        WeatherInformationManager().getWeatherInformation { [weak self] (weather) in
-            self?.weather = weather
-        }
         self.startLocation = LocationManager.shared.lastLocation
+        
+        WeatherInformationManager.getWeatherInformation(forCoordinates: LocationManager.shared.lastLocation.coordinate) { [weak self] (weather) in
+            self?.weather = weather
+            self?.didUpdate?()
+        }
     }
     
     public func stopRecording() {

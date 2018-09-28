@@ -30,6 +30,11 @@ class RecordTableViewCell: UITableViewCell {
         self.weatherImage.image = record.weather.image
         setupGraph()
         updateData(data: fixData(data: record.accData))
+        record.didUpdate = {
+            DispatchQueue.main.async {
+                self.setup(record: record)
+            }
+        }
         
     }
     

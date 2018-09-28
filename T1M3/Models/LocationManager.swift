@@ -15,7 +15,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     private let locationManager = CLLocationManager()
     
     // Just setting a default location for testing, otherwise picks up location from device/simulator
-    public var lastLocation: CLLocation? = CLLocation(latitude: CLLocationDegrees.init(-37.8136), longitude: CLLocationDegrees(144.9631))
+    public var lastLocation: CLLocation! = CLLocation(latitude: CLLocationDegrees.init(-37.8136), longitude: CLLocationDegrees(144.9631))
     
     override init() {
         // For use in foreground
