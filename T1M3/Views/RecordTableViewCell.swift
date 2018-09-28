@@ -25,11 +25,16 @@ class RecordTableViewCell: UITableViewCell {
     
     func setup(record: Recording) {
         self.name.text = record.timeStarted.formatTimestamp(withFormat: "HH-mm")
-        self.location.text = ""
+        self.location.text = record.startLocationName ?? ""
         self.time.text = Recording.toHumanReadable(elapsedTime: record.finalRecordingElapsed)
         self.weatherImage.image = record.weather.image
         setupGraph()
         updateData(data: fixData(data: record.accData))
+        record.didUpdate = {
+            DispatchQueue.main.async {
+                self.setup(record: record)
+            }
+        }
         
     }
     
