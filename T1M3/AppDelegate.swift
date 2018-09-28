@@ -41,6 +41,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, CoreDataFuncs {
     func applicationWillEnterForeground(_ application: UIApplication) {
         
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        debugPrint("App entering foreground")
+        cdRecordLogs = fetchRecordsFromCoreData()
+        loadRecordLogToSingleton()
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
