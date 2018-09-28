@@ -28,15 +28,18 @@ extension CoreDataFuncs{
         } else{
             cdRecord.editedDuration = record.editedDuration!
         }
+        cdRecord.timeStarted = record.timeStarted
+        
         return cdRecord
     }
     func convertCDRecordToRecord(cdRecord: CoreDataRecord) -> Recording{
         let record = Recording()
         record.notes = cdRecord.notes!
         record.editedDuration = cdRecord.editedDuration
-        
+        record.timeStarted = cdRecord.timeStarted
+
         //placeholer data
-        record.timeStarted = Date().timeIntervalSince1970
+//        record.timeStarted = Date().timeIntervalSince1970
         record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
         record.weather = .rainy
         return record

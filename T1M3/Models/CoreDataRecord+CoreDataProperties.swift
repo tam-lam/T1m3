@@ -18,5 +18,6 @@ extension CoreDataRecord {
 
     @NSManaged public var editedDuration: Double
     @NSManaged public var notes: String?
-    
+    @NSManaged public var timeStarted: Double
+
 }
