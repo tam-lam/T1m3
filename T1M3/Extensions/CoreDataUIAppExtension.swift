@@ -29,7 +29,7 @@ extension CoreDataFuncs{
             cdRecord.editedDuration = record.editedDuration!
         }
         cdRecord.timeStarted = record.timeStarted
-        
+        cdRecord.rawWeatherValue = Int16(record.weather.rawValue)
         return cdRecord
     }
     func convertCDRecordToRecord(cdRecord: CoreDataRecord) -> Recording{
@@ -37,11 +37,11 @@ extension CoreDataFuncs{
         record.notes = cdRecord.notes!
         record.editedDuration = cdRecord.editedDuration
         record.timeStarted = cdRecord.timeStarted
-
+        record.weather = cdRecord.weather!
+        debugPrint("cd Record Weather: \(cdRecord.weather)")
+        
         //placeholer data
-//        record.timeStarted = Date().timeIntervalSince1970
         record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
-        record.weather = .rainy
         return record
     }
     //load all records from Core Data to singleton Record Log

@@ -12,4 +12,10 @@ import CoreData
 
 public class CoreDataRecord: NSManagedObject {
 
+    var weather: WeatherSituation?{
+        get{
+            let value :Int = Int(self.rawWeatherValue)
+            return WeatherSituation(rawValue: value)
+        } 
+    }
 }

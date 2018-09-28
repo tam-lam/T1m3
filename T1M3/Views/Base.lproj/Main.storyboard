@@ -183,6 +183,11 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="160" id="6pS-xT-vfi"/>
                                                                 </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                        <integer key="value" value="10"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
                                                             </mapView>
                                                         </subviews>
                                                         <constraints>
