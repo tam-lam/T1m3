@@ -7,19 +7,10 @@ protocol CoreDataFuncs {
     
 }
 //Core data function related extension
+//To use these funcs in a class : conform to the protocol with the same name
 extension CoreDataFuncs{
     
-    //Add a record to CoreData
-    func addToCoreData(record: Recording){
-        guard let managedContext =  appDelegate?.persistentContainer.viewContext else { return }
-        let cdRecord = convertRecordToCDRecord(record: record, managedContext: managedContext)
-        do{
-            try managedContext.save()
-        }catch{
-            debugPrint("Could not save record")
-        }
-    }
-    
+    //Modify 2 functions bellow to when adding extra attributes to Record model
     func convertRecordToCDRecord(record: Recording, managedContext: NSManagedObjectContext) -> CoreDataRecord{
         let cdRecord = CoreDataRecord(context: managedContext)
         cdRecord.notes = record.notes
@@ -39,12 +30,24 @@ extension CoreDataFuncs{
         record.timeStarted = cdRecord.timeStarted
         record.weather = cdRecord.weather!
         debugPrint("cd Record Weather: \(cdRecord.weather)")
-        
         //placeholer data
         record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
         return record
     }
-    //load all records from Core Data to singleton Record Log
+    
+    
+    //Add individual record to CoreData Record log
+    func addToCoreData(record: Recording){
+        guard let managedContext =  appDelegate?.persistentContainer.viewContext else { return }
+        let cdRecord = convertRecordToCDRecord(record: record, managedContext: managedContext)
+        do{
+            try managedContext.save()
+        }catch{
+            debugPrint("Could not save record")
+        }
+    }
+    
+    //load all records from Core Data to Singleton Record Log
     func loadRecordLogToSingleton(){
         RecordLog.shared.removeAllRecords()
         let cdRecordLogs:[CoreDataRecord] = fetchRecordsFromCoreData()
@@ -54,6 +57,7 @@ extension CoreDataFuncs{
         }
     }
     
+    // Retrive CoreData Record log
     func fetchRecordsFromCoreData() -> [CoreDataRecord]{
         var recordLogs: [CoreDataRecord] = []
         guard let managedContext = appDelegate?.persistentContainer.viewContext else{return[]}
@@ -65,6 +69,7 @@ extension CoreDataFuncs{
         }
         return recordLogs
     }
+    //save all records which currently in Singleton to Coredata record log
     func saveAll(recordLog: [Recording]){
         debugPrint("Saving all records to Core Data..........")
         self.deleteAll()
@@ -72,6 +77,7 @@ extension CoreDataFuncs{
             addToCoreData(record: record)
         }
     }
+    //wipe coredata record log
     func deleteAll(){
         guard let managedContext =  appDelegate?.persistentContainer.viewContext else { return }
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CoreDataRecord")

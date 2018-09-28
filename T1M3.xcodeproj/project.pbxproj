@@ -12,7 +12,7 @@
 		B8866AC52144D9E50053CB8D /* EditRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC42144D9E50053CB8D /* EditRecordViewController.swift */; };
 		B8866AC72144F7E70053CB8D /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC62144F7E70053CB8D /* Settings.swift */; };
 		B8866AC92144FB820053CB8D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8866AC82144FB820053CB8D /* SettingsTableViewController.swift */; };
-		B8992EEA215DD4C1009A981A /* CoreDataUIAppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8992EE9215DD4C1009A981A /* CoreDataUIAppExtension.swift */; };
+		B8992EEA215DD4C1009A981A /* CoreDataFuncsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8992EE9215DD4C1009A981A /* CoreDataFuncsExtension.swift */; };
 		B8992EED215DE9BF009A981A /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8992EEB215DE9BF009A981A /* Model.xcdatamodeld */; };
 		B8ADB8012142140700AD7DA7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */; };
 		B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */; };
@@ -58,7 +58,7 @@
 		B8866AC42144D9E50053CB8D /* EditRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditRecordViewController.swift; sourceTree = "<group>"; };
 		B8866AC62144F7E70053CB8D /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		B8866AC82144FB820053CB8D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
-		B8992EE9215DD4C1009A981A /* CoreDataUIAppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataUIAppExtension.swift; sourceTree = "<group>"; };
+		B8992EE9215DD4C1009A981A /* CoreDataFuncsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFuncsExtension.swift; sourceTree = "<group>"; };
 		B8992EEC215DE9BF009A981A /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
@@ -139,7 +139,7 @@
 		B86F2E9B215D172E00C33977 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B8992EE9215DD4C1009A981A /* CoreDataUIAppExtension.swift */,
+				B8992EE9215DD4C1009A981A /* CoreDataFuncsExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -397,7 +397,7 @@
 				B8BDF64A215DF25B00577541 /* CoreDataRecord+CoreDataClass.swift in Sources */,
 				C4E4F8332136B97C00506B6D /* RecordLog.swift in Sources */,
 				B8866AC32144C83D0053CB8D /* SideTableCell.swift in Sources */,
-				B8992EEA215DD4C1009A981A /* CoreDataUIAppExtension.swift in Sources */,
+				B8992EEA215DD4C1009A981A /* CoreDataFuncsExtension.swift in Sources */,
 				B8ADB8012142140700AD7DA7 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
