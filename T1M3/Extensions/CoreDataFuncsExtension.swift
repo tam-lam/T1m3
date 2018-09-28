@@ -29,7 +29,7 @@ extension CoreDataFuncs{
         record.editedDuration = cdRecord.editedDuration
         record.timeStarted = cdRecord.timeStarted
         record.weather = cdRecord.weather!
-        debugPrint("cd Record Weather: \(cdRecord.weather)")
+//        debugPrint("cd Record Weather: \(cdRecord.weather)")
         //placeholer data
         record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
         return record
@@ -53,7 +53,8 @@ extension CoreDataFuncs{
         let cdRecordLogs:[CoreDataRecord] = fetchRecordsFromCoreData()
         for cdRecord in cdRecordLogs {
             let record = convertCDRecordToRecord(cdRecord: cdRecord)
-            RecordLog.shared.addRecord(record: record)
+//            RecordLog.shared.addRecord(record: record)
+            RecordLog.shared.addRecordOnlyToSingleton(record: record)
         }
     }
     
@@ -89,6 +90,10 @@ extension CoreDataFuncs{
             debugPrint("Cannot delete all CoreDataRecords")
         }
     }
-    
-
+}
+extension UIViewController: DataModelDelegate, CoreDataFuncs{
+    func didReceiveAddedRecord(record: Recording) {
+        debugPrint("Recieve Record: \(record.timeStarted)")
+        self.addToCoreData(record: record)
+    }
 }

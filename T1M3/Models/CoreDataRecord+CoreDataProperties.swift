@@ -20,6 +20,9 @@ extension CoreDataRecord {
     @NSManaged public var notes: String?
     @NSManaged public var timeStarted: Double
     @NSManaged public var rawWeatherValue: Int16
+    @NSManaged public var id: Int16
+
+    
     
 
 }

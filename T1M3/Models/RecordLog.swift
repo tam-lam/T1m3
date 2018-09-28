@@ -9,7 +9,13 @@
 import Foundation
 import CoreData
 
+protocol DataModelDelegate: class {
+    func didReceiveAddedRecord(record: Recording)
+}
+
 class RecordLog {
+    weak var delegate: DataModelDelegate?
+
     var coreDataRecordLog: [NSManagedObject] = []
     var selectedIndex : Int
     public  static let shared = RecordLog()
@@ -25,7 +31,13 @@ class RecordLog {
     
     public func addRecord(record: Recording) {
         records.append(record)
+        delegate?.didReceiveAddedRecord(record: record)
+
     }
+    public func addRecordOnlyToSingleton(record:Recording){
+        records.append(record)
+    }
+    
     public func addRecordAtIndex(record: Recording, destinationIndex: Int){
         records.insert(record, at: destinationIndex)
     }
@@ -37,7 +49,7 @@ class RecordLog {
     public func removeAllRecords(){
         records.removeAll()
     }
-    public func getSelectedIndex() ->Int {
+    public func getSelectedIndex() -> Int {
         return selectedIndex
     }
     public func setSelectedIndex(index:Int){
