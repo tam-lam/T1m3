@@ -36,9 +36,9 @@ public class Recording: NSObject {
         return self.notes
     }
     
-    public var startLocation: CLLocation?
+    public var startLocation: CLLocationCoordinate2D?
     public var startLocationName: String?
-    public var endLocation: CLLocation?
+    public var endLocation: CLLocationCoordinate2D?
     
     public var totalRecordingElapsed: Double {
         let intermissions = pauseTimes.reduce(0) { $0 + $1.resumeTime - $1.pauseTime }
@@ -64,15 +64,19 @@ public class Recording: NSObject {
         timeStarted = Date().timeIntervalSince1970
         AccelerometerManager.shared.addReceiver(receiver: self)
         
-        self.startLocation = LocationManager.shared.lastLocation
+        self.startLocation = LocationManager.shared.lastLocation.coordinate
         
         WeatherInformationManager.getWeatherInformation(forCoordinates: LocationManager.shared.lastLocation.coordinate) { [weak self] (weather) in
-            self?.weather = weather
-            self?.didUpdate?()
+            guard let strongSelf = self else { return }
+            strongSelf.weather = weather
+            strongSelf.didUpdate?()
+            RecordLog.shared.updateRecording(record: strongSelf)
         }
         LocationManager.shared.geocode(LocationManager.shared.lastLocation.coordinate) { [weak self] (cityName) -> (Void) in
-            self?.startLocationName = cityName
-            self?.didUpdate?()
+            guard let strongSelf = self else { return }
+            strongSelf.startLocationName = cityName
+            strongSelf.didUpdate?()
+            RecordLog.shared.updateRecording(record: strongSelf)
         }
     }
     
@@ -80,7 +84,7 @@ public class Recording: NSObject {
         timeFinished = Date().timeIntervalSince1970
         AccelerometerManager.shared.removeReceiver(receiver: self)
         accRecorder = nil
-        self.endLocation = LocationManager.shared.lastLocation
+        self.endLocation = LocationManager.shared.lastLocation.coordinate
     }
 }
 

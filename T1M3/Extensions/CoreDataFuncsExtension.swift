@@ -1,6 +1,7 @@
 import Foundation
 import CoreData
 import UIKit
+import MapKit
 let appDelegate = UIApplication.shared.delegate as? AppDelegate
 
 protocol CoreDataFuncs {
@@ -21,6 +22,16 @@ extension CoreDataFuncs{
         }
         cdRecord.timeStarted = record.timeStarted
         cdRecord.rawWeatherValue = Int16(record.weather.rawValue)
+        let startLocation = Location(context: managedContext)
+        startLocation.lat = record.startLocation?.latitude ?? 0.0
+        startLocation.lon = record.startLocation?.longitude ?? 0.0
+        let endLocation = Location(context: managedContext)
+        endLocation.lat = record.startLocation?.latitude ?? 0.0
+        endLocation.lon = record.startLocation?.longitude ?? 0.0
+        cdRecord.startLocation = startLocation
+        cdRecord.endLocation = endLocation
+        
+        cdRecord.startLocationName = record.startLocationName
         return cdRecord
     }
     func convertCDRecordToRecord(cdRecord: CoreDataRecord) -> Recording{
@@ -32,6 +43,16 @@ extension CoreDataFuncs{
 //        debugPrint("cd Record Weather: \(cdRecord.weather)")
         //placeholer data
         record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
+        record.startLocationName = cdRecord.startLocationName
+        
+        if let startLocationLat = cdRecord.startLocation?.lat,
+            let startLocationLon = cdRecord.startLocation?.lon,
+            let endLocationLat = cdRecord.endLocation?.lat,
+            let endLocationLon = cdRecord.endLocation?.lon {
+            record.startLocation = CLLocationCoordinate2D.init(latitude: startLocationLat, longitude: startLocationLon)
+            record.endLocation = CLLocationCoordinate2D.init(latitude: endLocationLat, longitude: endLocationLon)
+            
+        }
         return record
     }
     func replaceCDRecord(replacement: Recording, index: Int){

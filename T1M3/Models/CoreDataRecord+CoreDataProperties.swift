@@ -2,7 +2,7 @@
 //  CoreDataRecord+CoreDataProperties.swift
 //  
 //
-//  Created by Graphene on 28/9/18.
+//  Created by Bob on 9/29/18.
 //
 //
 
@@ -17,12 +17,12 @@ extension CoreDataRecord {
     }
 
     @NSManaged public var editedDuration: Double
-    @NSManaged public var notes: String?
-    @NSManaged public var timeStarted: Double
-    @NSManaged public var rawWeatherValue: Int16
     @NSManaged public var id: Int16
-
-    
-    
+    @NSManaged public var notes: String?
+    @NSManaged public var rawWeatherValue: Int16
+    @NSManaged public var startLocationName: String?
+    @NSManaged public var timeStarted: Double
+    @NSManaged public var endLocation: Location?
+    @NSManaged public var startLocation: Location?
 
 }

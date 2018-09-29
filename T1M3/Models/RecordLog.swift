@@ -72,4 +72,9 @@ class RecordLog {
         records[index] = record
         delegate?.didDetailVCRecieveReplacement(replacement: record, index: index)
     }
+    
+    public func updateRecording(record: Recording) {
+        guard let index = records.index(of: record) else { return }
+        delegate?.didDetailVCRecieveReplacement(replacement: record, index: index)
+    }
 }

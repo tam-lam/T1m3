@@ -82,8 +82,8 @@ extension RecordDetailViewController: UITableViewDataSource,UITableViewDelegate{
 extension RecordDetailViewController: MKMapViewDelegate {
     func setupMap(recording: Recording) {
         
-        guard let startCoordinates = recording.startLocation?.coordinate,
-            let endCoordinates = recording.endLocation?.coordinate else { return }
+        guard let startCoordinates = recording.startLocation,
+            let endCoordinates = recording.endLocation else { return }
         let centerLat = (startCoordinates.latitude + endCoordinates.latitude) / 2
         let centerLon = (startCoordinates.longitude + endCoordinates.longitude) / 2
         

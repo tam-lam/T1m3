@@ -18,17 +18,19 @@
 		B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */; };
 		B8ADB80521423D5900AD7DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8ADB80421423D5900AD7DA7 /* Assets.xcassets */; };
 		B8BDF642215DEC1900577541 /* CoreDataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF641215DEC1900577541 /* CoreDataRecord.swift */; };
-		B8BDF649215DF25B00577541 /* CoreDataRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF647215DF25A00577541 /* CoreDataRecord+CoreDataProperties.swift */; };
 		B8BDF64A215DF25B00577541 /* CoreDataRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF648215DF25A00577541 /* CoreDataRecord+CoreDataClass.swift */; };
 		C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42233FD21325E8C001A27AD /* AppDelegate.swift */; };
 		C422340021325E8C001A27AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42233FF21325E8C001A27AD /* ViewController.swift */; };
 		C422340321325E8C001A27AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C422340121325E8C001A27AD /* Main.storyboard */; };
 		C422340821325E8E001A27AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C422340621325E8E001A27AD /* LaunchScreen.storyboard */; };
 		C422341221326129001A27AD /* StopWatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C422341121326129001A27AD /* StopWatchViewController.swift */; };
+		C42EF3CC215F46C00094F8A0 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42EF3CA215F46C00094F8A0 /* Location+CoreDataClass.swift */; };
+		C42EF3CF215F47570094F8A0 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42EF3CE215F47570094F8A0 /* Location+CoreDataProperties.swift */; };
 		C4469E7A213BB7580004DE1C /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4469E79213BB7580004DE1C /* RecordsViewController.swift */; };
 		C4469E7D213BB8D70004DE1C /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4469E7B213BB8D70004DE1C /* RecordTableViewCell.swift */; };
 		C4469E7E213BB8D70004DE1C /* RecordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4469E7C213BB8D70004DE1C /* RecordTableViewCell.xib */; };
 		C448E320213FB72500501BF4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C448E31F213FB72500501BF4 /* LocationManager.swift */; };
+		C4522D37215F3D8F0006019E /* CoreDataRecord+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4522D35215F3D8F0006019E /* CoreDataRecord+CoreDataProperties.swift */; };
 		C457CBB821520B5400DBD2BE /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = C457CBB721520B5400DBD2BE /* Recording.swift */; };
 		C492B53B214D34B4006E7C61 /* T1M3UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492B53A214D34B4006E7C61 /* T1M3UITests.swift */; };
 		C492B543214D386F006E7C61 /* StopWatchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C492B542214D386F006E7C61 /* StopWatchTest.swift */; };
@@ -64,7 +66,6 @@
 		B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
 		B8ADB80421423D5900AD7DA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8BDF641215DEC1900577541 /* CoreDataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRecord.swift; sourceTree = "<group>"; };
-		B8BDF647215DF25A00577541 /* CoreDataRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B8BDF648215DF25A00577541 /* CoreDataRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C42233FA21325E8C001A27AD /* T1M3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T1M3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42233FD21325E8C001A27AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,10 +74,13 @@
 		C422340721325E8E001A27AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C422340921325E8E001A27AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C422341121326129001A27AD /* StopWatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchViewController.swift; sourceTree = "<group>"; };
+		C42EF3CA215F46C00094F8A0 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataClass.swift"; path = "../Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C42EF3CE215F47570094F8A0 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataProperties.swift"; path = "/Users/Bob/Documents/T1M3/T1M3/Models/Location+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		C4469E79213BB7580004DE1C /* RecordsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		C4469E7B213BB8D70004DE1C /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
 		C4469E7C213BB8D70004DE1C /* RecordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecordTableViewCell.xib; sourceTree = "<group>"; };
 		C448E31F213FB72500501BF4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		C4522D35215F3D8F0006019E /* CoreDataRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CoreDataRecord+CoreDataProperties.swift"; path = "/Users/Bob/Documents/T1M3/T1M3/Models/CoreDataRecord+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		C457CBB721520B5400DBD2BE /* Recording.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		C492B538214D34B4006E7C61 /* T1M3UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = T1M3UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C492B53A214D34B4006E7C61 /* T1M3UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T1M3UITests.swift; sourceTree = "<group>"; };
@@ -196,8 +200,10 @@
 		C4469E77213BB5CC0004DE1C /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C42EF3CA215F46C00094F8A0 /* Location+CoreDataClass.swift */,
+				C42EF3CE215F47570094F8A0 /* Location+CoreDataProperties.swift */,
+				C4522D35215F3D8F0006019E /* CoreDataRecord+CoreDataProperties.swift */,
 				B8BDF648215DF25A00577541 /* CoreDataRecord+CoreDataClass.swift */,
-				B8BDF647215DF25A00577541 /* CoreDataRecord+CoreDataProperties.swift */,
 				C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */,
 				C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */,
 				C4E4F8322136B97C00506B6D /* RecordLog.swift */,
@@ -386,17 +392,19 @@
 				B8992EED215DE9BF009A981A /* Model.xcdatamodeld in Sources */,
 				C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */,
 				B8BDF642215DEC1900577541 /* CoreDataRecord.swift in Sources */,
+				C42EF3CF215F47570094F8A0 /* Location+CoreDataProperties.swift in Sources */,
 				B8866AC92144FB820053CB8D /* SettingsTableViewController.swift in Sources */,
 				C457CBB821520B5400DBD2BE /* Recording.swift in Sources */,
+				C42EF3CC215F46C00094F8A0 /* Location+CoreDataClass.swift in Sources */,
 				C422340021325E8C001A27AD /* ViewController.swift in Sources */,
 				C4E4F8312136B0C300506B6D /* WeatherInformationManager.swift in Sources */,
 				C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */,
 				C4469E7D213BB8D70004DE1C /* RecordTableViewCell.swift in Sources */,
 				C448E320213FB72500501BF4 /* LocationManager.swift in Sources */,
-				B8BDF649215DF25B00577541 /* CoreDataRecord+CoreDataProperties.swift in Sources */,
 				B8BDF64A215DF25B00577541 /* CoreDataRecord+CoreDataClass.swift in Sources */,
 				C4E4F8332136B97C00506B6D /* RecordLog.swift in Sources */,
 				B8866AC32144C83D0053CB8D /* SideTableCell.swift in Sources */,
+				C4522D37215F3D8F0006019E /* CoreDataRecord+CoreDataProperties.swift in Sources */,
 				B8992EEA215DD4C1009A981A /* CoreDataFuncsExtension.swift in Sources */,
 				B8ADB8012142140700AD7DA7 /* SettingsViewController.swift in Sources */,
 			);
