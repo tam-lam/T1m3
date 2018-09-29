@@ -13,6 +13,7 @@ protocol DataModelDelegate: class {
     func didReceiveAddedRecord(record: Recording)
     func didRecordsVCRecieveDeleteIndex(index: Int)
     func didDetailVCRecieveDeleteIndex(index: Int)
+    func didDetailVCRecieveReplacement(replacement: Recording, index: Int)
 }
 
 class RecordLog {
@@ -69,5 +70,6 @@ class RecordLog {
     
     public func replaceRecord(record: Recording, index: Int) {
         records[index] = record
+        delegate?.didDetailVCRecieveReplacement(replacement: record, index: index)
     }
 }
