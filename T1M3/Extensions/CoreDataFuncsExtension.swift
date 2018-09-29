@@ -10,7 +10,7 @@ protocol CoreDataFuncs {
 //To use these funcs in a class : conform to the protocol with the same name
 extension CoreDataFuncs{
     
-    //Modify 3 functions bellow to when adding extra attributes to Record model
+    //Modify 2 functions bellow to when adding extra attributes to Record model
     func convertRecordToCDRecord(record: Recording, managedContext: NSManagedObjectContext) -> CoreDataRecord{
         let cdRecord = CoreDataRecord(context: managedContext)
         cdRecord.notes = record.notes
@@ -48,6 +48,7 @@ extension CoreDataFuncs{
             }else{
                 recordLogs[index].setValue(replacement.editedDuration, forKey: "editedDuration")
             }
+            //Don't need to replace other attributes since they are not editable
             try managedContext.save()
         } catch{
             debugPrint("Cannot replace CoreDateRecord")
