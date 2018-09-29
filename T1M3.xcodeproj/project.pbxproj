@@ -64,8 +64,8 @@
 		B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
 		B8ADB80421423D5900AD7DA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B8BDF641215DEC1900577541 /* CoreDataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRecord.swift; sourceTree = "<group>"; };
-		B8BDF647215DF25A00577541 /* CoreDataRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CoreDataRecord+CoreDataProperties.swift"; path = "/Users/graphene/Desktop/iphoneaddictiont1m3/T1M3/Models/CoreDataRecord+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
-		B8BDF648215DF25A00577541 /* CoreDataRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "CoreDataRecord+CoreDataClass.swift"; path = "/Users/graphene/Desktop/iphoneaddictiont1m3/T1M3/Models/CoreDataRecord+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		B8BDF647215DF25A00577541 /* CoreDataRecord+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRecord+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B8BDF648215DF25A00577541 /* CoreDataRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C42233FA21325E8C001A27AD /* T1M3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T1M3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42233FD21325E8C001A27AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C42233FF21325E8C001A27AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
