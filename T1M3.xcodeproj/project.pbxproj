@@ -17,7 +17,6 @@
 		B8ADB8012142140700AD7DA7 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */; };
 		B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */; };
 		B8ADB80521423D5900AD7DA7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8ADB80421423D5900AD7DA7 /* Assets.xcassets */; };
-		B8BDF642215DEC1900577541 /* CoreDataRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF641215DEC1900577541 /* CoreDataRecord.swift */; };
 		B8BDF64A215DF25B00577541 /* CoreDataRecord+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDF648215DF25A00577541 /* CoreDataRecord+CoreDataClass.swift */; };
 		C42233FE21325E8C001A27AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42233FD21325E8C001A27AD /* AppDelegate.swift */; };
 		C422340021325E8C001A27AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42233FF21325E8C001A27AD /* ViewController.swift */; };
@@ -65,7 +64,6 @@
 		B8ADB8002142140700AD7DA7 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B8ADB8022142374000AD7DA7 /* RecordDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordDetailViewController.swift; sourceTree = "<group>"; };
 		B8ADB80421423D5900AD7DA7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B8BDF641215DEC1900577541 /* CoreDataRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRecord.swift; sourceTree = "<group>"; };
 		B8BDF648215DF25A00577541 /* CoreDataRecord+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreDataRecord+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C42233FA21325E8C001A27AD /* T1M3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = T1M3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C42233FD21325E8C001A27AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 				B8866AC62144F7E70053CB8D /* Settings.swift */,
 				C448E31F213FB72500501BF4 /* LocationManager.swift */,
 				C457CBB721520B5400DBD2BE /* Recording.swift */,
-				B8BDF641215DEC1900577541 /* CoreDataRecord.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -391,7 +388,6 @@
 				B8ADB8032142374000AD7DA7 /* RecordDetailViewController.swift in Sources */,
 				B8992EED215DE9BF009A981A /* Model.xcdatamodeld in Sources */,
 				C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */,
-				B8BDF642215DEC1900577541 /* CoreDataRecord.swift in Sources */,
 				C42EF3CF215F47570094F8A0 /* Location+CoreDataProperties.swift in Sources */,
 				B8866AC92144FB820053CB8D /* SettingsTableViewController.swift in Sources */,
 				C457CBB821520B5400DBD2BE /* Recording.swift in Sources */,

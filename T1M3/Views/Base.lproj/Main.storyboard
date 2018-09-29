@@ -1171,6 +1171,9 @@
                             <outlet property="delegate" destination="pFQ-N1-QR4" id="WV5-mH-7xE"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="bgSwitch" destination="UUU-8j-oTc" id="Oqr-d0-7DJ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zww-ho-Viu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="mok-Ge-RG9" userLabel="Exit" sceneMemberID="exit"/>

@@ -9,8 +9,9 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-
-   
+    
+    
+    @IBOutlet weak var bgSwitch: UISwitch!
     @IBAction func bgSwitchAction(_ sender: UISwitch) {
         if(sender.isOn == true){
             Settings.shared.switchToLightMode()
@@ -20,18 +21,21 @@ class SettingsTableViewController: UITableViewController {
             Settings.shared.switchToDarkMode()
             let name = Notification.Name(rawValue: changeBGNotification)
             NotificationCenter.default.post(name: name, object: nil)
-
+            
         }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if(Settings.shared.isDarkMode()){
+            bgSwitch.setOn(false, animated: false)
+        }
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
