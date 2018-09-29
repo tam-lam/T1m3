@@ -11,6 +11,9 @@ import CoreData
 
 protocol DataModelDelegate: class {
     func didReceiveAddedRecord(record: Recording)
+    func didRecordsVCRecieveDeleteIndex(index: Int)
+    func didDetailVCRecieveDeleteIndex(index: Int)
+    func didDetailVCRecieveReplacement(replacement: Recording, index: Int)
 }
 
 class RecordLog {
@@ -44,6 +47,7 @@ class RecordLog {
     public func removeRecord(index: Int){
         if records.indices.contains(index){
             records.remove(at: index)
+            delegate?.didRecordsVCRecieveDeleteIndex(index: index)
         }
     }
     public func removeAllRecords(){
@@ -61,9 +65,11 @@ class RecordLog {
     }
     public func deleteSelectedRecord(){
         records.remove(at: selectedIndex)
+        delegate?.didDetailVCRecieveDeleteIndex(index: selectedIndex)
     }
     
     public func replaceRecord(record: Recording, index: Int) {
         records[index] = record
+        delegate?.didDetailVCRecieveReplacement(replacement: record, index: index)
     }
 }

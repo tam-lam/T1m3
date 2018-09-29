@@ -10,7 +10,7 @@ protocol CoreDataFuncs {
 //To use these funcs in a class : conform to the protocol with the same name
 extension CoreDataFuncs{
     
-    //Modify 2 functions bellow to when adding extra attributes to Record model
+    //Modify 3 functions bellow to when adding extra attributes to Record model
     func convertRecordToCDRecord(record: Recording, managedContext: NSManagedObjectContext) -> CoreDataRecord{
         let cdRecord = CoreDataRecord(context: managedContext)
         cdRecord.notes = record.notes
@@ -34,10 +34,28 @@ extension CoreDataFuncs{
         record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
         return record
     }
-    
+    func replaceCDRecord(replacement: Recording, index: Int){
+        debugPrint("Replacing...")
+        var recordLogs: [CoreDataRecord] = []
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else{return}
+        let fetchRequest: NSFetchRequest<CoreDataRecord> = CoreDataRecord.fetchRequest()
+        do{
+            recordLogs = try managedContext.fetch(fetchRequest)
+            recordLogs[index].setValue(replacement.notes, forKey: "notes")
+            recordLogs[index].setValue(replacement.timeStarted, forKey: "timeStarted")
+            if(replacement.finalRecordingElapsed != 0){
+                recordLogs[index].setValue(replacement.finalRecordingElapsed, forKey: "editedDuration")
+            }else{
+                recordLogs[index].setValue(replacement.editedDuration, forKey: "editedDuration")
+            }
+            try managedContext.save()
+        } catch{
+            debugPrint("Cannot replace CoreDateRecord")
+        }
+    }
     
     //Add individual record to CoreData Record log
-    func addToCoreData(record: Recording){
+    func addCDRecord(record: Recording){
         guard let managedContext =  appDelegate?.persistentContainer.viewContext else { return }
         let cdRecord = convertRecordToCDRecord(record: record, managedContext: managedContext)
         do{
@@ -47,13 +65,26 @@ extension CoreDataFuncs{
         }
     }
     
+    //delete individual record to CoreData Record log
+    func deleteCDRecord(index: Int){
+        var recordLogs: [CoreDataRecord] = []
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else{return}
+        let fetchRequest: NSFetchRequest<CoreDataRecord> = CoreDataRecord.fetchRequest()
+        do{
+            recordLogs = try managedContext.fetch(fetchRequest)
+            managedContext.delete(recordLogs[index])
+            try managedContext.save()
+        } catch{
+            debugPrint("Cannot delete CoreDateRecord")
+        }
+    }
+    
     //load all records from Core Data to Singleton Record Log
     func loadRecordLogToSingleton(){
         RecordLog.shared.removeAllRecords()
         let cdRecordLogs:[CoreDataRecord] = fetchRecordsFromCoreData()
         for cdRecord in cdRecordLogs {
             let record = convertCDRecordToRecord(cdRecord: cdRecord)
-//            RecordLog.shared.addRecord(record: record)
             RecordLog.shared.addRecordOnlyToSingleton(record: record)
         }
     }
@@ -75,7 +106,7 @@ extension CoreDataFuncs{
         debugPrint("Saving all records to Core Data..........")
         self.deleteAll()
         for record in recordLog{
-            addToCoreData(record: record)
+            addCDRecord(record: record)
         }
     }
     //wipe coredata record log
@@ -90,10 +121,21 @@ extension CoreDataFuncs{
             debugPrint("Cannot delete all CoreDataRecords")
         }
     }
+
+
 }
 extension UIViewController: DataModelDelegate, CoreDataFuncs{
     func didReceiveAddedRecord(record: Recording) {
         debugPrint("Recieve Record: \(record.timeStarted)")
-        self.addToCoreData(record: record)
+        self.addCDRecord(record: record)
+    }
+    func didRecordsVCRecieveDeleteIndex(index: Int) {
+        self.deleteCDRecord(index: index)
+    }
+    func didDetailVCRecieveDeleteIndex(index: Int) {
+        self.deleteCDRecord(index: index)
+    }
+    func didDetailVCRecieveReplacement(replacement: Recording, index: Int) {
+        self.replaceCDRecord(replacement: replacement, index: index)
     }
 }
