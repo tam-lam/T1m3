@@ -90,10 +90,28 @@ extension CoreDataFuncs{
             debugPrint("Cannot delete all CoreDataRecords")
         }
     }
+    func deleteCDRecord(index: Int){
+        var recordLogs: [CoreDataRecord] = []
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else{return}
+        let fetchRequest: NSFetchRequest<CoreDataRecord> = CoreDataRecord.fetchRequest()
+        do{
+            recordLogs = try managedContext.fetch(fetchRequest)
+            managedContext.delete(recordLogs[index])
+            try managedContext.save()
+        } catch{
+            debugPrint("Cannot delete CoreDateRecord")
+        }
+    }
 }
 extension UIViewController: DataModelDelegate, CoreDataFuncs{
     func didReceiveAddedRecord(record: Recording) {
         debugPrint("Recieve Record: \(record.timeStarted)")
         self.addToCoreData(record: record)
+    }
+    func didRecordsVCRecieveDeleteIndex(index: Int) {
+        self.deleteCDRecord(index: index)
+    }
+    func didDetailVCRecieveDeleteIndex(index: Int) {
+        self.deleteCDRecord(index: index)
     }
 }
