@@ -14,9 +14,13 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func bgSwitchAction(_ sender: UISwitch) {
         if(sender.isOn == true){
             Settings.shared.switchToLightMode()
-            
+            let name = Notification.Name(rawValue: changeBGNotification)
+            NotificationCenter.default.post(name: name, object: nil)
         }else{
             Settings.shared.switchToDarkMode()
+            let name = Notification.Name(rawValue: changeBGNotification)
+            NotificationCenter.default.post(name: name, object: nil)
+
         }
     }
     override func viewDidLoad() {
