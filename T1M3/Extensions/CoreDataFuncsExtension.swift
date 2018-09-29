@@ -64,6 +64,8 @@ extension CoreDataFuncs{
             debugPrint("Could not save record")
         }
     }
+    
+    //delete individual record to CoreData Record log
     func deleteCDRecord(index: Int){
         var recordLogs: [CoreDataRecord] = []
         guard let managedContext = appDelegate?.persistentContainer.viewContext else{return}
