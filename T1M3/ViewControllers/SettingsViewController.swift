@@ -11,17 +11,10 @@ let changeBGNotification = "darkModeNotification"
 
 class SettingsViewController: UIViewController {
 
-    let changeBGNotificationName = Notification.Name(rawValue: changeBGNotification)
-    deinit{
-        NotificationCenter.default.removeObserver(self)
-    }
     
     @IBOutlet weak var bgImageView: UIImageView!
-//    override func viewWillAppear(_ animated: Bool) {
-//        createObserver()
-//    }
+    
     override func viewDidLoad() {
-       
         super.viewDidLoad()
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -34,13 +27,16 @@ class SettingsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         bgImageView.image = Settings.shared.getBgImage()
     }
-
+    deinit{
+        NotificationCenter.default.removeObserver(self)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         
     }
     func createObserver(){
+        let changeBGNotificationName = Notification.Name(rawValue: changeBGNotification)
         NotificationCenter.default.addObserver(self, selector: #selector(SettingsViewController.updateBg(notification:)), name: changeBGNotificationName, object: nil)
     }
     @objc func updateBg(notification: NSNotification){
