@@ -23,7 +23,6 @@ class RecordsViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-//        self.title = "Records"
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "RecordTableViewCell", bundle: nil), forCellReuseIdentifier: "RecordTableViewCell")
@@ -61,15 +60,15 @@ extension RecordsViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
-    
-    //Ediding mode - swaping row
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let recordIndex = sourceIndexPath.row
-        let destinationIndex = destinationIndexPath.row
-        let record = RecordLog.shared.records[recordIndex]
-        RecordLog.shared.removeRecord(index: recordIndex)
-        RecordLog.shared.addRecordAtIndex(record: record, destinationIndex: destinationIndex)
-    }
+//
+//    //Ediding mode - swaping row
+//    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+//        let recordIndex = sourceIndexPath.row
+//        let destinationIndex = destinationIndexPath.row
+//        let record = RecordLog.shared.records[recordIndex]
+//        RecordLog.shared.removeRecord(index: recordIndex)
+//        RecordLog.shared.addRecordAtIndex(record: record, destinationIndex: destinationIndex)
+//    }
     //Editing mode - delete row
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if(editingStyle == .delete){

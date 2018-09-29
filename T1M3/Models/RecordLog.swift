@@ -9,7 +9,16 @@
 import Foundation
 import CoreData
 
+protocol DataModelDelegate: class {
+    func didReceiveAddedRecord(record: Recording)
+    func didRecordsVCRecieveDeleteIndex(index: Int)
+    func didDetailVCRecieveDeleteIndex(index: Int)
+    func didDetailVCRecieveReplacement(replacement: Recording, index: Int)
+}
+
 class RecordLog {
+    weak var delegate: DataModelDelegate?
+
     var coreDataRecordLog: [NSManagedObject] = []
     var selectedIndex : Int
     public  static let shared = RecordLog()
@@ -25,19 +34,26 @@ class RecordLog {
     
     public func addRecord(record: Recording) {
         records.append(record)
+        delegate?.didReceiveAddedRecord(record: record)
+
     }
+    public func addRecordOnlyToSingleton(record:Recording){
+        records.append(record)
+    }
+    
     public func addRecordAtIndex(record: Recording, destinationIndex: Int){
         records.insert(record, at: destinationIndex)
     }
     public func removeRecord(index: Int){
         if records.indices.contains(index){
             records.remove(at: index)
+            delegate?.didRecordsVCRecieveDeleteIndex(index: index)
         }
     }
     public func removeAllRecords(){
         records.removeAll()
     }
-    public func getSelectedIndex() ->Int {
+    public func getSelectedIndex() -> Int {
         return selectedIndex
     }
     public func setSelectedIndex(index:Int){
@@ -49,9 +65,11 @@ class RecordLog {
     }
     public func deleteSelectedRecord(){
         records.remove(at: selectedIndex)
+        delegate?.didDetailVCRecieveDeleteIndex(index: selectedIndex)
     }
     
     public func replaceRecord(record: Recording, index: Int) {
         records[index] = record
+        delegate?.didDetailVCRecieveReplacement(replacement: record, index: index)
     }
 }
