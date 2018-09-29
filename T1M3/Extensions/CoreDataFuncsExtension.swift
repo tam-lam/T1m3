@@ -40,7 +40,6 @@ extension CoreDataFuncs{
         record.editedDuration = cdRecord.editedDuration
         record.timeStarted = cdRecord.timeStarted
         record.weather = cdRecord.weather!
-//        debugPrint("cd Record Weather: \(cdRecord.weather)")
         //placeholer data
         record.accData = [(0,1),(1,2),(2,0),(3,5),(4,5),(5,3)]
         record.startLocationName = cdRecord.startLocationName
@@ -56,7 +55,6 @@ extension CoreDataFuncs{
         return record
     }
     func replaceCDRecord(replacement: Recording, index: Int){
-        debugPrint("Replacing...")
         var recordLogs: [CoreDataRecord] = []
         guard let managedContext = appDelegate?.persistentContainer.viewContext else{return}
         let fetchRequest: NSFetchRequest<CoreDataRecord> = CoreDataRecord.fetchRequest()
@@ -148,7 +146,6 @@ extension CoreDataFuncs{
 }
 extension UIViewController: DataModelDelegate, CoreDataFuncs{
     func didReceiveAddedRecord(record: Recording) {
-        debugPrint("Recieve Record: \(record.timeStarted)")
         self.addCDRecord(record: record)
     }
     func didRecordsVCRecieveDeleteIndex(index: Int) {
