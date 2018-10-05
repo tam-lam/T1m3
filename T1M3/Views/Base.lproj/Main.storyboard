@@ -353,6 +353,7 @@
                                                     <constraint firstItem="gYS-R4-MID" firstAttribute="leading" secondItem="mZU-33-ngm" secondAttribute="leading" constant="273" id="ldo-Y2-gVm"/>
                                                     <constraint firstAttribute="bottom" secondItem="gYS-R4-MID" secondAttribute="bottom" constant="53" id="mZQ-Y5-DYI"/>
                                                     <constraint firstAttribute="bottom" secondItem="gYS-R4-MID" secondAttribute="bottom" constant="44.5" id="md0-Dz-sZ0"/>
+                                                    <constraint firstAttribute="trailing" secondItem="k6h-gh-80y" secondAttribute="trailing" constant="20" id="n8o-c3-ioR"/>
                                                     <constraint firstAttribute="trailing" secondItem="k6h-gh-80y" secondAttribute="trailing" constant="12" id="nbT-5V-bBx"/>
                                                     <constraint firstAttribute="trailing" secondItem="gYS-R4-MID" secondAttribute="trailing" constant="248" id="o1h-98-E2k"/>
                                                     <constraint firstAttribute="bottom" secondItem="gYS-R4-MID" secondAttribute="bottom" constant="57" id="o9P-rd-jyb"/>
@@ -379,6 +380,7 @@
                                                         <exclude reference="A5H-qK-PfP"/>
                                                         <exclude reference="LzW-oz-6dX"/>
                                                         <exclude reference="hKC-4D-H1f"/>
+                                                        <exclude reference="n8o-c3-ioR"/>
                                                         <exclude reference="AxG-6q-aMB"/>
                                                         <exclude reference="Evd-1Y-WpO"/>
                                                         <exclude reference="KBC-67-Snp"/>
@@ -483,6 +485,12 @@
                                                 <variation key="heightClass=regular">
                                                     <mask key="constraints">
                                                         <include reference="0p6-kj-9WJ"/>
+                                                    </mask>
+                                                </variation>
+                                                <variation key="widthClass=compact">
+                                                    <mask key="constraints">
+                                                        <include reference="n8o-c3-ioR"/>
+                                                        <exclude reference="nbT-5V-bBx"/>
                                                     </mask>
                                                 </variation>
                                                 <variation key="heightClass=compact-widthClass=compact">
