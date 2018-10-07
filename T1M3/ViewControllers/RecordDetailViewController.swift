@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import Charts
 
 class RecordDetailViewController: UIViewController {
     
@@ -19,6 +20,7 @@ class RecordDetailViewController: UIViewController {
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var durationLbl: UILabel!
     @IBOutlet weak var notes: UILabel!
+    @IBOutlet weak var graph: LineChartView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +55,8 @@ class RecordDetailViewController: UIViewController {
         let notesString = (record.getNotes() == "") ? "This record doesn't have any notes ": record.getNotes()
         self.notes.text = notesString
         setupMap(recording: record)
+        setupGraph()
+        updateData(data: fixData(data: record.accData))
 
     }
 }
@@ -122,6 +126,53 @@ extension RecordDetailViewController: MKMapViewDelegate {
         }
         return nil
 
+    }
+    
+    func setupGraph() {
+        graph.xAxis.enabled = false
+        graph.leftAxis.enabled = false
+        graph.rightAxis.enabled = false
+        graph.legend.enabled = false
+        graph.chartDescription?.enabled = false
+        graph.isUserInteractionEnabled = false
+    }
+    
+    func fixData(data: [(x: Double, y: Double)]) -> [(x: Double, y: Double)] {
+        var dataDictionary: [Double: [Double]] = [:]
+        data.forEach { (dataPoint) in
+            if var currentArray = dataDictionary[dataPoint.x] {
+                currentArray.append(dataPoint.y)
+                dataDictionary[dataPoint.x] = currentArray
+            }
+            else {
+                dataDictionary[dataPoint.x] = [dataPoint.y]
+            }
+        }
+        return dataDictionary.flatMap{ (x: $0.key, y: $0.value.first) as? ChartPoint  }.sorted(by: { (one, two) -> Bool in
+            return one.x < two.x
+        })    // Change to average if time
+    }
+    
+    typealias ChartPoint = (x: Double, y: Double)
+    
+    func updateData(data: [(x: Double, y: Double)]) {
+        let values = data.compactMap{ChartDataEntry.init(x: $0.x, y: $0.y)}
+        let set = LineChartDataSet(values: values, label: "")
+        set.mode = .cubicBezier
+        set.drawCirclesEnabled = false
+        set.lineWidth = 1.8
+        set.circleRadius = 4
+        set.setCircleColor(.white)
+        set.highlightColor = UIColor(red: 244/255, green: 117/255, blue: 117/255, alpha: 1)
+        set.fillColor = .blue
+        set.fillAlpha = 0
+        set.drawHorizontalHighlightIndicatorEnabled = false
+        set.fillFormatter = CubicLineSampleFillFormatter()
+        
+        let data = LineChartData(dataSet: set)
+        
+        data.setDrawValues(false)
+        graph.data = data
     }
     
 }
