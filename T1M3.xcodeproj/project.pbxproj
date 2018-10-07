@@ -40,10 +40,21 @@
 		C4CD4D8B2132FA5B0070D035 /* StopWatchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */; };
 		C4E4F8312136B0C300506B6D /* WeatherInformationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */; };
 		C4E4F8332136B97C00506B6D /* RecordLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E4F8322136B97C00506B6D /* RecordLog.swift */; };
+		C4E645C82169B9C2005E5F38 /* T1M3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E645C72169B9C2005E5F38 /* T1M3Tests.swift */; };
+		C4E645D02169B9D6005E5F38 /* RecordingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E645CF2169B9D6005E5F38 /* RecordingTests.swift */; };
+		C4E645D22169BA10005E5F38 /* LocationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E645D12169BA10005E5F38 /* LocationTests.swift */; };
+		C4E645D42169BA2E005E5F38 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E645D32169BA2E005E5F38 /* WeatherTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		C492B53D214D34B4006E7C61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C42233F221325E8C001A27AD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C42233F921325E8C001A27AD;
+			remoteInfo = T1M3;
+		};
+		C4E645CA2169B9C2005E5F38 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C42233F221325E8C001A27AD /* Project object */;
 			proxyType = 1;
@@ -91,6 +102,12 @@
 		C4CD4D8A2132FA5B0070D035 /* StopWatchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopWatchController.swift; sourceTree = "<group>"; };
 		C4E4F8302136B0C300506B6D /* WeatherInformationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInformationManager.swift; sourceTree = "<group>"; };
 		C4E4F8322136B97C00506B6D /* RecordLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordLog.swift; sourceTree = "<group>"; };
+		C4E645C52169B9C2005E5F38 /* T1M3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = T1M3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4E645C72169B9C2005E5F38 /* T1M3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = T1M3Tests.swift; sourceTree = "<group>"; };
+		C4E645C92169B9C2005E5F38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4E645CF2169B9D6005E5F38 /* RecordingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTests.swift; sourceTree = "<group>"; };
+		C4E645D12169BA10005E5F38 /* LocationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTests.swift; sourceTree = "<group>"; };
+		C4E645D32169BA2E005E5F38 /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		F0120C570A8E5D15EE146FCA /* Pods-T1M3.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-T1M3.release.xcconfig"; path = "Pods/Target Support Files/Pods-T1M3/Pods-T1M3.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,6 +121,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C492B535214D34B4006E7C61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4E645C22169B9C2005E5F38 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -151,6 +175,7 @@
 			children = (
 				C42233FC21325E8C001A27AD /* T1M3 */,
 				C492B539214D34B4006E7C61 /* T1M3UITests */,
+				C4E645C62169B9C2005E5F38 /* T1M3Tests */,
 				C42233FB21325E8C001A27AD /* Products */,
 				6463AF263A2D7A7BF924FB94 /* Pods */,
 				3AE46E26CD60E37867FD6C7E /* Frameworks */,
@@ -162,6 +187,7 @@
 			children = (
 				C42233FA21325E8C001A27AD /* T1M3.app */,
 				C492B538214D34B4006E7C61 /* T1M3UITests.xctest */,
+				C4E645C52169B9C2005E5F38 /* T1M3Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -238,6 +264,18 @@
 			path = T1M3UITests;
 			sourceTree = "<group>";
 		};
+		C4E645C62169B9C2005E5F38 /* T1M3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C4E645C72169B9C2005E5F38 /* T1M3Tests.swift */,
+				C4E645C92169B9C2005E5F38 /* Info.plist */,
+				C4E645CF2169B9D6005E5F38 /* RecordingTests.swift */,
+				C4E645D12169BA10005E5F38 /* LocationTests.swift */,
+				C4E645D32169BA2E005E5F38 /* WeatherTests.swift */,
+			);
+			path = T1M3Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,6 +316,24 @@
 			productReference = C492B538214D34B4006E7C61 /* T1M3UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		C4E645C42169B9C2005E5F38 /* T1M3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C4E645CE2169B9C2005E5F38 /* Build configuration list for PBXNativeTarget "T1M3Tests" */;
+			buildPhases = (
+				C4E645C12169B9C2005E5F38 /* Sources */,
+				C4E645C22169B9C2005E5F38 /* Frameworks */,
+				C4E645C32169B9C2005E5F38 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C4E645CB2169B9C2005E5F38 /* PBXTargetDependency */,
+			);
+			name = T1M3Tests;
+			productName = T1M3Tests;
+			productReference = C4E645C52169B9C2005E5F38 /* T1M3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -292,6 +348,10 @@
 						CreatedOnToolsVersion = 9.4.1;
 					};
 					C492B537214D34B4006E7C61 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = C42233F921325E8C001A27AD;
+					};
+					C4E645C42169B9C2005E5F38 = {
 						CreatedOnToolsVersion = 9.4.1;
 						TestTargetID = C42233F921325E8C001A27AD;
 					};
@@ -312,6 +372,7 @@
 			targets = (
 				C42233F921325E8C001A27AD /* T1M3 */,
 				C492B537214D34B4006E7C61 /* T1M3UITests */,
+				C4E645C42169B9C2005E5F38 /* T1M3Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -329,6 +390,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		C492B536214D34B4006E7C61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4E645C32169B9C2005E5F38 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -419,6 +487,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C4E645C12169B9C2005E5F38 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4E645D42169BA2E005E5F38 /* WeatherTests.swift in Sources */,
+				C4E645C82169B9C2005E5F38 /* T1M3Tests.swift in Sources */,
+				C4E645D22169BA10005E5F38 /* LocationTests.swift in Sources */,
+				C4E645D02169B9D6005E5F38 /* RecordingTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -426,6 +505,11 @@
 			isa = PBXTargetDependency;
 			target = C42233F921325E8C001A27AD /* T1M3 */;
 			targetProxy = C492B53D214D34B4006E7C61 /* PBXContainerItemProxy */;
+		};
+		C4E645CB2169B9C2005E5F38 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C42233F921325E8C001A27AD /* T1M3 */;
+			targetProxy = C4E645CA2169B9C2005E5F38 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -635,6 +719,44 @@
 			};
 			name = Release;
 		};
+		C4E645CC2169B9C2005E5F38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = T1M3Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.iphoneaddiction.rmit.T1M3Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/T1M3.app/T1M3";
+			};
+			name = Debug;
+		};
+		C4E645CD2169B9C2005E5F38 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = T1M3Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = au.com.iphoneaddiction.rmit.T1M3Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/T1M3.app/T1M3";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -661,6 +783,15 @@
 			buildConfigurations = (
 				C492B53F214D34B4006E7C61 /* Debug */,
 				C492B540214D34B4006E7C61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C4E645CE2169B9C2005E5F38 /* Build configuration list for PBXNativeTarget "T1M3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C4E645CC2169B9C2005E5F38 /* Debug */,
+				C4E645CD2169B9C2005E5F38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

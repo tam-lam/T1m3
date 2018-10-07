@@ -73,7 +73,7 @@ class StopWatchTest: XCTestCase {
         pauseButton.tap()
         app.buttons["Discard"].tap()
         
-        XCTAssert(app.tables.firstMatch.cells.count == 1)
+        XCTAssert(app.tables.firstMatch.cells.count >= 1)
         
     }
     
